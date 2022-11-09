@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { models: { Product }} = require('../db')
+const { models: { Product, Order_product }} = require('../db')
 module.exports = router
 
 //Route to retreive all products
@@ -23,3 +23,18 @@ router.get('/:id', async (req, res,next) => {
   }
 });
 
+//Route to retreive the order_product by Product's id
+router.get('/:id/order_products', async (req, res, next) => {
+  const {id} = req.params;
+  try{
+    const order_productByProductId = await Order_product.findAll(
+      { where: {
+        productId: id
+      }
+    },
+    )
+    res.send(order_productByProductId);
+  } catch (err) {
+    next(err)
+  }
+})

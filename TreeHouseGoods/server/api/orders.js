@@ -18,7 +18,7 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res,next) => {
   const {id} = req.params;
   try {
-     const orderById = await Order.findByPk(id);
+     const orderById = await Order.findByPk(id, {include: [Product]});
      res.send(orderById)
   } catch (err) {
     next(err)
@@ -26,20 +26,37 @@ router.get('/:id', async (req, res,next) => {
 });
 
 //Route to retrieve the order_products within an order based upon order Id
+router.get('/:id/order_products', async (req, res, next) => {
+  const {id} = req.params;
+  try{
+    const order_productByOrderId = await Order_product.findAll(
+      { where: {
+        orderId: id
+      }
+    },
+    )
+    res.send(order_productByOrderId);
+  } catch (err) {
+    next(err)
+  }
+})
+
 // router.get('/:id/order_products', async (req, res, next) => {
 //   const {id} = req.params;
 //   try{
-//     const order_productByOrderId = await Order.findAll(
-//       { where: {
-//         id: id
-//       },
-//       include: [{model: Product}]
-//     },
-//     )
+//     const order_productByOrderId = await Order.findAll({
+//       include: [{
+//         model: Product,
+//         through: {
+//           where: {
+
+//           }
+//         }
+//       }]
+//   })
 //     res.send(order_productByOrderId);
 //   } catch (err) {
 //     next(err)
 //   }
 // })
-
 
