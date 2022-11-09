@@ -6,3 +6,5 @@ package-lock.json
 
 bundle.js
 bundle.js.map
+
+.env
