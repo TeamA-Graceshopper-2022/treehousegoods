@@ -17,24 +17,32 @@ const Navbar = () => {
       <h1>TreeHouse Goods</h1>
       <nav>
         {isLoggedIn ? (
-          <div>
+          <div className='navContainer'>
             {/* The navbar will show these links after you log in */}
-            <Link to="/home">Home</Link>
-            <Link to="/products">All Products</Link>
-            <Link to="/cart">Cart</Link>
-            <Link to="/user/:id">Profile</Link>
-            <button type="button" onClick={logoutAndRedirectHome}>
-              Logout
-            </button>
+            <div>
+              <Link to="/home">Home</Link>
+              <Link to="/products">All Products</Link>
+            </div>
+            <div>
+              <Link to="/cart">Cart</Link>
+              <Link to="/user/:id">Profile</Link>
+              <button type="button" onClick={logoutAndRedirectHome}>
+                Logout
+              </button>
+            </div>
           </div>
         ) : (
-          <div>
+          <div className='navContainer'>
             {/* The navbar will show these links before you log in */}
-            <Link to="/home">Home</Link>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
-            <Link to="/products">All Products</Link>
-            <Link to="/cart">Cart</Link>
+            <div>
+              <Link to="/home">Home</Link>
+              <Link to="/products">All Products</Link>
+            </div>
+            <div>
+              <Link to="/cart">Cart</Link>
+              <Link to="/login">Login</Link>
+              <Link to="/signup">Sign Up</Link>
+            </div>
           </div>
         )}
       </nav>

@@ -9,18 +9,20 @@ const AllProducts = () => {
     useEffect(() => {
         dispatch(fetchAllProducts())
     }, [])
-    console.log(dispatch)
 
     return(
-        <div>
-            <h1>All Products Component</h1>
+        <div><h1>All Products</h1>
+        <div className="allProductsContainer">
+            
             {products.map((product) => (
-                <Link key={product.id} to={`/products/${product.id}`}>
-                <div className="allProducts" key={product.id}>{product.name}<img className="allView" src={product.image}/></div>
-                </Link>
+                <div className="allProducts" key={product.id}>
+                    <div><Link to={`/products/${product.id}`}><h3>{product.name}</h3></Link></div>
+                    <div><Link to={`/products/${product.id}`}><img className="allView" src={product.image}/></Link></div>
+                    <div className="itemPrice">{product.price}</div>
+                </div>
             ))}
         </div>
-        
+        </div>
 
     )
 

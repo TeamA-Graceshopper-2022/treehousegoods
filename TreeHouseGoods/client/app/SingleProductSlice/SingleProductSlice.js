@@ -6,7 +6,6 @@ const initialState = {
 }
 export const fetchSingleProduct = createAsyncThunk('fetchSingleProduct', async (id) => {
     const { data } = await axios.get(`/api/products/${id}`)
-    console.log(data, "data")
     return data
 })
 const singleProductSlice = createSlice({

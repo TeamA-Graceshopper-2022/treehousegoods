@@ -9,9 +9,14 @@ const SingleProduct = () => {
     useEffect(() => {
         dispatch(fetchSingleProduct(id))
     }, [])
-    console.log("product", product)
+
     return (
-        <h1>Single Product</h1>
+        <div className="singleProductContainer">
+            <div><h1>{product.name}</h1></div>
+            <div><img className="singleProductImage" src={product.image} /></div>
+            <div><p>{product.desc}</p></div>
+            <div><h3>{product.price}</h3></div>
+        </div>
     )
 }
 export default SingleProduct;
