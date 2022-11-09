@@ -4,6 +4,7 @@ const AllProducts = () => {
 
     return(
         <h1>All Products Component</h1>
+
     )
 
 }
