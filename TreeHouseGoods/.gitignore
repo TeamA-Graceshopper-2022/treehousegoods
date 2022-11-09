@@ -7,4 +7,7 @@ package-lock.json
 bundle.js
 bundle.js.map
 
+TreeHouseGoods/public/bundle.js
+TreeHouseGoods/public/bundle.js.map
+
 .env
