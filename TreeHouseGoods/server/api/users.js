@@ -15,3 +15,13 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
+router.get('/:id', async (req, res,next) => {
+  const {id} = req.params;
+  try {
+     const userById = await User.findByPk(id);
+     res.send(userById)
+  } catch (err) {
+    next(err)
+  }
+});
