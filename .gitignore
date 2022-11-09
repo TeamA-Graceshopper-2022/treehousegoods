@@ -1,0 +1,10 @@
+# Ignore all node_modules
+node_modules/*
+
+package.lock.json
+package-lock.json
+
+bundle.js
+bundle.js.map
+
+.env
