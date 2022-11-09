@@ -8,7 +8,7 @@ const Order_product = db.define('Order_product', {
   },
   price: {
     type: Sequelize.DOUBLE,
-  }
+  },
 })
 
 module.exports = Order_product
