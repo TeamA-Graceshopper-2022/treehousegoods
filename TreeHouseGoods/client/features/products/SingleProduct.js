@@ -1,14 +1,17 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Routes, Route, NavLink, useParams } from "react-router-dom";
+import { fetchSingleProduct } from "../../app/SingleProductSlice/SingleProductSlice";
 
 const SingleProduct = () => {
     const { id } = useParams();
-    const product = useSelector((state) => state.product.product)
+    const product = useSelector((state) => state.singleProduct.product)
     
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(fetchsingleProduct())
+        dispatch(fetchSingleProduct(id))
     }, [])
-    console.log(dispatch)
+    console.log("product", product)
 
     return (
         <h1>Single Product</h1>
