@@ -4,7 +4,6 @@ import { fetchAllProducts } from "../../app/AllProductsSlice/allProductsSlice";
 
 const AllProducts = () => {
     const products = useSelector((state) => state.products.products)
-    const { name, price, image, id } = products
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchAllProducts())
@@ -12,7 +11,13 @@ const AllProducts = () => {
     console.log(dispatch)
 
     return(
-        <h1>All Products Component</h1>
+        <div>
+            <h1>All Products Component</h1>
+            {products.map((product) => (
+                <div key={product.id}>{product.name}</div>
+            ))}
+        </div>
+        
 
     )
 
