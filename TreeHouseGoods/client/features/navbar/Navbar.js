@@ -22,6 +22,7 @@ const Navbar = () => {
             <Link to="/home">Home</Link>
             <Link to="/products">All Products</Link>
             <Link to="/cart">Cart</Link>
+            <Link to="/user/:id">Profile</Link>
             <button type="button" onClick={logoutAndRedirectHome}>
               Logout
             </button>
