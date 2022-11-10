@@ -4,8 +4,9 @@ const db = require('../db')
 const Order = db.define('order', {
     status: {
         type: Sequelize.ENUM(['cart', 'complete']),
-        allowNull: false
+        allowNull: false,
+        defaultValue: 'cart'
       }
 })
 
-module.exports = Order
+module.exports = Order;

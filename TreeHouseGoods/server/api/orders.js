@@ -41,6 +41,41 @@ router.get('/:id/order_products', async (req, res, next) => {
   }
 })
 
+// create a new cart
+
+router.post("/order", async(req,res,next) => {
+ 
+
+  try {
+
+   const newOrder = await Order.create(req.body);
+
+    res.send(newOrder);
+  } catch(err) {
+    console.log("an error has occured with the post route")
+  }
+});
+
+router.post("/cart", async(req,res,next) => {
+ 
+
+  try {
+
+   const cartItem = await Order_product.create(req.body);
+
+    res.send(cartItem);
+  } catch(err) {
+    console.log("an error has occured with the post cart route")
+  }
+});
+
+
+
+
+
+
+
+
 // router.get('/:id/order_products', async (req, res, next) => {
 //   const {id} = req.params;
 //   try{
