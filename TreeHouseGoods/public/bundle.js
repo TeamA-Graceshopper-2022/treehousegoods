@@ -5550,35 +5550,30 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 
-var addToCart = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createAsyncThunk)("addToCart", /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(productId) {
-    var _yield$axios$post, data;
-    return _regeneratorRuntime().wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            _context.prev = 0;
-            _context.next = 3;
-            return axios__WEBPACK_IMPORTED_MODULE_0__["default"].post("/api/order/:id");
-          case 3:
-            _yield$axios$post = _context.sent;
-            data = _yield$axios$post.data;
-            return _context.abrupt("return", data);
-          case 8:
-            _context.prev = 8;
-            _context.t0 = _context["catch"](0);
-            next(_context.t0);
-          case 11:
-          case "end":
-            return _context.stop();
-        }
+var addToCart = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createAsyncThunk)("addToCart", /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+  var _yield$axios$post, data;
+  return _regeneratorRuntime().wrap(function _callee$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.prev = 0;
+          _context.next = 3;
+          return axios__WEBPACK_IMPORTED_MODULE_0__["default"].post("/api/orders/cart");
+        case 3:
+          _yield$axios$post = _context.sent;
+          data = _yield$axios$post.data;
+          return _context.abrupt("return", data);
+        case 8:
+          _context.prev = 8;
+          _context.t0 = _context["catch"](0);
+          next(_context.t0);
+        case 11:
+        case "end":
+          return _context.stop();
       }
-    }, _callee, null, [[0, 8]]);
-  }));
-  return function (_x) {
-    return _ref.apply(this, arguments);
-  };
-}());
+    }
+  }, _callee, null, [[0, 8]]);
+})));
 var initialState = [];
 var cartSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createSlice)({
   name: 'cart',
@@ -5739,25 +5734,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "logout": () => (/* reexport safe */ _features_auth_authSlice__WEBPACK_IMPORTED_MODULE_1__.logout),
 /* harmony export */   "me": () => (/* reexport safe */ _features_auth_authSlice__WEBPACK_IMPORTED_MODULE_1__.me)
 /* harmony export */ });
-/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
+/* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
 /* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux-logger */ "./node_modules/redux-logger/dist/redux-logger.js");
 /* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux_logger__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _features_auth_authSlice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../features/auth/authSlice */ "./client/features/auth/authSlice.js");
 /* harmony import */ var _AllProductsSlice_allProductsSlice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AllProductsSlice/allProductsSlice */ "./client/app/AllProductsSlice/allProductsSlice.js");
 /* harmony import */ var _SingleProductSlice_SingleProductSlice__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SingleProductSlice/SingleProductSlice */ "./client/app/SingleProductSlice/SingleProductSlice.js");
 /* harmony import */ var _UserSlice_UserSignUpSlice__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./UserSlice/UserSignUpSlice */ "./client/app/UserSlice/UserSignUpSlice.js");
+/* harmony import */ var _Cart_CartSlice__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Cart/CartSlice */ "./client/app/Cart/CartSlice.js");
 
 
 
 
 
 
-var store = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_5__.configureStore)({
+
+var store = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_6__.configureStore)({
   reducer: {
     auth: _features_auth_authSlice__WEBPACK_IMPORTED_MODULE_1__["default"],
     products: _AllProductsSlice_allProductsSlice__WEBPACK_IMPORTED_MODULE_2__["default"],
     singleProduct: _SingleProductSlice_SingleProductSlice__WEBPACK_IMPORTED_MODULE_3__["default"],
-    newUser: _UserSlice_UserSignUpSlice__WEBPACK_IMPORTED_MODULE_4__["default"]
+    newUser: _UserSlice_UserSignUpSlice__WEBPACK_IMPORTED_MODULE_4__["default"],
+    cart: _Cart_CartSlice__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   middleware: function middleware(getDefaultMiddleware) {
     return getDefaultMiddleware().concat((redux_logger__WEBPACK_IMPORTED_MODULE_0___default()));
