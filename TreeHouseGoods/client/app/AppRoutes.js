@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { AllProducts, LandingPage, SingleProduct, Cart, UserDashboard } from '../features';
+import { AllProducts, LandingPage, SingleProduct, Cart, UserDashboard, SignUp } from '../features';
 import AuthForm from '../features/auth/AuthForm';
 import Home from '../features/home/Home';
 import { me } from './store';
@@ -36,10 +36,11 @@ const AppRoutes = () => {
             path="/login"
             element={<AuthForm name="login" displayName="Login" />}
           />
-          <Route
+          {/* <Route
             path="/signup"
             element={<AuthForm name="signup" displayName="Sign Up" />}
-          />
+          /> */}
+          <Route path="/signup" element={<SignUp/>}/>
         </Routes>
       )}
       <Routes>
