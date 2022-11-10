@@ -6221,9 +6221,10 @@ var AllProducts = function AllProducts() {
     category = _useParams.category;
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    dispatch(category ? (0,_app_AllProductsSlice_allProductsSlice__WEBPACK_IMPORTED_MODULE_2__.fetchProductsByCat)(category) : (0,_app_AllProductsSlice_allProductsSlice__WEBPACK_IMPORTED_MODULE_2__.fetchAllProducts)());
-  }, []);
-  console.log("Category:", category);
+    category ? dispatch((0,_app_AllProductsSlice_allProductsSlice__WEBPACK_IMPORTED_MODULE_2__.fetchProductsByCat)(category)) : dispatch((0,_app_AllProductsSlice_allProductsSlice__WEBPACK_IMPORTED_MODULE_2__.fetchAllProducts)());
+    console.log("Category:", category);
+  }, [category]);
+  // console.log("Category:", category)
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "All Products"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "allProductsContainer"
   }, products.map(function (product) {

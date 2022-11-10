@@ -9,9 +9,10 @@ const AllProducts = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(category ? fetchProductsByCat(category) : fetchAllProducts())
-    }, [])
-    console.log("Category:", category)
+        category ? dispatch(fetchProductsByCat(category)) : dispatch(fetchAllProducts())
+        console.log("Category:", category)
+    }, [category])
+    // console.log("Category:", category)
     return(
         <div><h1>All Products</h1>
         <div className="allProductsContainer">
