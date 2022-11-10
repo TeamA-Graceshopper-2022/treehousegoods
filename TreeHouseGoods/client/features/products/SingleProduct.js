@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Routes, Route, NavLink, useParams } from "react-router-dom";
 import { fetchSingleProduct } from "../../app/SingleProductSlice/SingleProductSlice";
 import {addToCart} from '../../app/Cart/CartSlice'
+import axios from "axios";
 
 const SingleProduct = () => {
     const { id } = useParams();
@@ -14,7 +15,7 @@ const SingleProduct = () => {
 
     const addToCartFunction = async(e) => {
         e.preventDefault();
-
+        
         dispatch(addToCart(product.id))
         
     }

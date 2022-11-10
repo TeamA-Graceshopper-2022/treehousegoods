@@ -2,9 +2,9 @@ import {createSlice, createAsyncThunk, createNextState} from "@reduxjs/toolkit"
 import axios from 'axios'
 
 
-export const addToCart = createAsyncThunk("addToCart", async(productId) =>{
+export const addToCart = createAsyncThunk("addToCart", async() =>{
     try { /* post to order product table, + get order id*/
-      const {data} = await axios.post(`/api/order/:id`)
+      const {data} = await axios.post(`/api/orders/cart`)
       return data;
 
     } catch(err) {

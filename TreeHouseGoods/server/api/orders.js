@@ -31,6 +31,7 @@ router.get('/:id', async (req, res, next) => {
   try {
     const orderById = await Order.findByPk(id, { include: [Product] });
     res.send(orderById)
+    
   } catch (err) {
     next(err)
   }
