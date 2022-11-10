@@ -1,15 +1,17 @@
 import React, {useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { fetchAllProducts } from "../../app/AllProductsSlice/allProductsSlice";
+import { Link, useParams } from "react-router-dom";
+import { fetchAllProducts, fetchProductsByCat } from "../../app/AllProductsSlice/allProductsSlice";
 
 const AllProducts = () => {
     const products = useSelector((state) => state.products.products)
+    let { category } = useParams()
     const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(fetchAllProducts())
-    }, [])
 
+    useEffect(() => {
+        dispatch(category ? fetchProductsByCat(category) : fetchAllProducts())
+    }, [])
+    console.log("Category:", category)
     return(
         <div><h1>All Products</h1>
         <div className="allProductsContainer">

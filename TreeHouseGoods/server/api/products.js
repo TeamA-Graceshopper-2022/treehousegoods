@@ -12,6 +12,20 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+//Route to retreive product's by their respective category
+router.get('/cat/:category', async (req, res, next) => {
+  const { category } = req.params;
+  try{
+    const productByCategory = await Product.findAll({where: {
+      category: category
+    }})
+    res.send(productByCategory)
+  } catch (err) {
+    next(err)
+  }
+})
+
+
 //Route to retreive a product based upon the product's Id
 router.get('/:id', async (req, res,next) => {
   const {id} = req.params;
@@ -38,3 +52,4 @@ router.get('/:id/order_products', async (req, res, next) => {
     next(err)
   }
 })
+

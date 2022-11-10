@@ -45,10 +45,12 @@ const AppRoutes = () => {
       )}
       <Routes>
       <Route path="/products" element={<AllProducts/>}/>
-      <Route path="/products/:id" element={<SingleProduct/>}/>
+      
       <Route path='/home' element={<LandingPage/>}/>
       <Route path='/' element={<LandingPage/>}/>
       <Route path='/cart' element={<Cart/>}/>
+      <Route path="/products/cat/:category" element={<AllProducts/>}/>
+      <Route path="/products/:id" element={<SingleProduct/>}/>
       </Routes>
     </div>
   );
