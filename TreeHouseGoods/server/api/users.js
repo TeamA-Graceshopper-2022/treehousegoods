@@ -29,10 +29,10 @@ router.get('/:id', async (req, res,next) => {
 });
 
 //Route to retrieve a cart based upon a user's id
-router.get('/:id/cart', async (req, res, next) => {
+router.post('/:id/cart', async (req, res, next) => {
   const {id} = req.params;
   try {
-    const cartByUserId = await Order.findAll(
+    const cartByUserId = await Order.findOrCreate(
       { where: {
         userId: id,
         status: 'cart'

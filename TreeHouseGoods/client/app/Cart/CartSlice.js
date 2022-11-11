@@ -13,6 +13,15 @@ export const addToCart = createAsyncThunk("addToCart", async() =>{
     }
 })
 
+export const findOrCreateCart = createAsyncThunk("findOrCreateCart", async(id) => {
+    try{
+        const { data } = await axios.post(`/api/users/${id}/cart`)
+        return data;
+    } catch (err) {
+        next(err)
+    }
+})
+
 
 const initialState=[];
 
@@ -22,6 +31,9 @@ const cartSlice = createSlice({
     extraReducers:(builder) =>{
         builder.addCase(addToCart.fulfilled, (state, action) => {
             return action.payload;
+        }),
+        builder.addCase(findOrCreateCart.fulfilled, (state, action) => {
+            return action.payload
         })
     }
 })

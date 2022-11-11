@@ -56,10 +56,11 @@ router.get('/:id/order_products', async (req, res, next) => {
   }
 })
 
-// create a new cart
+//Create a new cart
 router.post("/order", async (req, res, next) => {
+  const { id } = req.params;
   try {
-    const newOrder = await Order.create(req.body);
+    const newOrder = await Order.findOrCreate(req.body, {where: {userId: id}});
     res.send(newOrder);
   } catch (err) {
     console.log("an error has occured with the post route")
