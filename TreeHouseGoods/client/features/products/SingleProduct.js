@@ -9,21 +9,25 @@ const SingleProduct = () => {
     const { id } = useParams();
     const product = useSelector((state) => state.singleProduct.product)
     const user = useSelector((state) => state.auth.me)
+    const order = useSelector((state) => state.cart)
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchSingleProduct(id))
+        
     }, [])
 
     const addToCartFunction = async(e) => {
         e.preventDefault();
         
-        // dispatch(addToCart(product.id))
         dispatch(findOrCreateCart(user.id))
-        console.log("Button clicked:", this)
+        dispatch(addToCart(product.id, 3))
         console.log('Product Id:', product.id)
         console.log('State.me:', user)
+        // console.log("Order:", order)
     }
     console.log('State.me:', user)
+    console.log("Order:", order)
+    console.log("Product", product)
     return (
         <div className="singleProductContainer">
             <div><h1>{product.name}</h1></div>
