@@ -25,6 +25,16 @@ router.get('/history/:id', async (req, res, next) => {
   }
 })
 
+//Retreive all order_products
+router.get('/order_products', async(req, res, next) => {
+  try{
+    const allOrderProds = await Order_product.findAll()
+    res.send(allOrderProds)
+  } catch (err) {
+    next(err)
+  }
+})
+
 //Route to retreive an order based on OrderId
 router.get('/:id', async (req, res, next) => {
   const { id } = req.params;
@@ -36,7 +46,6 @@ router.get('/:id', async (req, res, next) => {
     next(err)
   }
 });
-
 
 
 //Route to retrieve the order_products within an order based upon order Id
@@ -68,7 +77,7 @@ router.post("/order", async (req, res, next) => {
 });
 
 //Creating a new order_product (item within a cart)
-router.post("/cart", async (req, res, next) => {
+router.post("/order_products", async (req, res, next) => {
   try {
     const cartItem = await Order_product.create(req.body);
     res.send(cartItem);

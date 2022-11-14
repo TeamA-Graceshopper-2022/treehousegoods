@@ -2,9 +2,9 @@ import {createSlice, createAsyncThunk, createNextState} from "@reduxjs/toolkit"
 import axios from 'axios'
 
 
-export const addToCart = createAsyncThunk("addToCart", async() =>{
+export const addToCart = createAsyncThunk("addToCart", async(productId, orderId) =>{
     try { /* post to order product table, + get order id*/
-      const {data} = await axios.post(`/api/orders/cart`)
+      const {data} = await axios.post(`/api/orders/order_products`, {productId: productId, orderId: orderId})
       return data;
 
     } catch(err) {
@@ -23,12 +23,14 @@ export const findOrCreateCart = createAsyncThunk("findOrCreateCart", async(id) =
 })
 
 
+
 const initialState= {
     cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : [],  //checking if cart items are in local storage, if have we add, else we add it as an empty array
     cartTotalQuantity:0,
     cartTotalAmount: 0,
 
 };
+
 
 const cartSlice = createSlice({
     name: 'cart',
@@ -60,7 +62,7 @@ const cartSlice = createSlice({
             return action.payload;
         }),
         builder.addCase(findOrCreateCart.fulfilled, (state, action) => {
-            return action.payload
+            return action.payload[0]
         })
     },
 });
