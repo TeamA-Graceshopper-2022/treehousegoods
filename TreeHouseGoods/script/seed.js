@@ -24,6 +24,7 @@ async function seed() {
     Product.create({ name: 'Phalaenopsis Orchid', price: 30.99, category: 'plant', desc: "Elegant white orchid bloom.", image: "https://res.cloudinary.com/ufn/image/upload/c_pad,f_auto,fl_progressive,h_500,w_445/mkxrvxkdaboxn6xjq5f4.jpg", imageAlt: "", inventory: 200 }),
     Product.create({ name: 'Jade Plant', price: 16.99, category: 'plant', desc: "Jade plants require medium/low light. Requires decent amount of water.", image: "https://images.unsplash.com/photo-1523362289600-a70b4a0e09aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8amFkZSUyMHBsYW50fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60", imageAlt: "", inventory: 100 }),
 
+
     //Homegoods
     Product.create({ name: 'Wall Shelves', price: 36.99, category: 'homegood', desc: "Rustic Wood Floating Shelves for Wall Decor", image: "https://images.unsplash.com/photo-1516650198585-d029a68fc0dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8d29vZGVuJTIwd2FsbCUyMHNoZWx2ZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=900&q=60", imageAlt: "", inventory: 100 }),
     Product.create({ name: 'Mason Jar Collection', price: 54.99, category: 'homegood', desc: "For your flowers or food storage. Zero waste & Sustainability.", image: "https://images.unsplash.com/photo-1531112998639-59af23e7a65e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dmludGFnZSUyMGphcnN8ZW58MHwxfDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60", imageAlt: "", inventory: 100 }),
@@ -37,6 +38,14 @@ async function seed() {
     Product.create({ name: 'Fringed Hammock', price: 75.99, category: 'homegood', desc: "Nothing says relaxation like a hammock. A fringed hammock turns a spot by the window into the worlds most stylish meditation nook ever.", image: "https://i.pinimg.com/564x/76/1c/b8/761cb8b5877a2fef6bf82a2c9935a13e.jpg", imageAlt: "", inventory: 100 }),
     Product.create({ name: 'Apothecary Shelf', price: 75.99, category: 'homegood', desc: "A place to collect treasures from the forest.", image: "https://i.etsystatic.com/9685741/r/il/5ec98f/3018225952/il_1588xN.3018225952_6bb1.jpg", imageAlt: "", inventory: 100 }),
   
+
+    Product.create({ name: 'Bonsai Tree', price: 44.99, category: 'plant', desc: "A miniature tree that requires unique care and cultivation techniques. Bonsai Trees require medium light and a decent amount of water.", image: "https://upload.wikimedia.org/wikipedia/commons/8/80/Pescia%2C_museo_del_bonsai%2C_punica_granatum%2C_stile_moyogi_%28eretto_informale%29%2C_con_frutti.jpg", imageAlt: "", inventory: 100 }),
+    Product.create({ name: 'Fig Tree', price: 149.99, category: 'plant', desc: "A simple, yet towering plant. Fig trees require a high amount of light but only a little amount of water.", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKRijZ4L0T27tG4DZ98WHFAi5uIt2npUsg493lyTz25r9vIYj9Td4GtN0PABsceDBARnM&usqp=CAU", imageAlt: "", inventory: 100 }),
+    Product.create({ name: 'Peace Lily', price: 30.99, category: 'plant', desc: "A peaceful plant that comes in a range of sizes. Peace lilies require medium/low light and a small amount of water.", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmPDPAPG6zSWZrec9CiS9tsNXu7y_4iPSNDA&usqp=CAU", imageAlt: "", inventory: 100 }),
+    Product.create({ name: 'Castiron Plant', price: 78.99, category: 'plant', desc: "An undemanding plant that provides a sense of solace. Castiron plants require medium light and a decent amount of water.", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVrm_AGhVrfGru5oAhAv_TmrThHqyXNU_Glg&usqp=CAU", imageAlt: "", inventory: 100 }),
+    Product.create({ name: 'Lemon Tree', price: 115.99, category: 'plant', desc: "Perfect for the backyard or deck, Lemon Trees require a high amount of light and a decent amount of water.", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiIr0zs-q9_kK6uGvhKD3Y9oA7C_XiMzs5_A&usqp=CAU", imageAlt: "", inventory: 100 }),
+    Product.create({ name: 'Snake Plant', price: 20.99, category: 'plant', desc: "A distinctive, budding plant that requires a high amount of light and water.", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwgspTsKcXSKwTyZH6hrRWRfqm_xbl8Oaaog&usqp=CAU", imageAlt: "", inventory: 100 }),
+
   ])
 
   const orders = await Promise.all([
