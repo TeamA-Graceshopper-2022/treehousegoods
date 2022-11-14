@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AllProducts, LandingPage, SingleProduct, Cart, UserDashboard, SignUp } from '../features';
 import AuthForm from '../features/auth/AuthForm';
 import Home from '../features/home/Home';
@@ -19,7 +19,12 @@ const AppRoutes = () => {
   }, []);
 
   return (
+
+    
     <div>
+
+      {/**Nav Bar component? */}
+      
       {isLoggedIn ? (
         <Routes>
           <Route path="/" element={<Home />} />
