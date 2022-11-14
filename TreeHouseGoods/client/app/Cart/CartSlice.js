@@ -54,8 +54,22 @@ const cartSlice = createSlice({
             const tempProduct = {...action.payload, cartQuantity: 1 };
             state.cartItems.push(tempProduct) 
            }
-         localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+           localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
         },
+    /* 
+       increaseItemGuestCart(state, action){
+            // +1 to cart quantity
+        },
+        decreaseItemGuestCart(state, action) {
+            const itemIndex = state.cartItems.findIndex(item)
+             => item.id === action.payload.id);
+             
+             if () {   /// check the quantity and if matches params than subtract 1
+
+             } else if // quanity is 0, remove from cart
+             
+        },
+      */
     },
     extraReducers:(builder) =>{
         builder.addCase(addToCart.fulfilled, (state, action) => {
