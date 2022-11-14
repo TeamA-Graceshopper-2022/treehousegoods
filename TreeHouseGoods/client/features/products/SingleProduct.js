@@ -1,20 +1,31 @@
 import React, {useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Routes, Route, NavLink, useParams } from "react-router-dom";
+import { Routes, Route, NavLink, useParams, useNavigate } from "react-router-dom";
 import { fetchSingleProduct } from "../../app/SingleProductSlice/SingleProductSlice";
-import {addToCart, findOrCreateCart} from '../../app/Cart/CartSlice'
+import {addToCart, findOrCreateCart, addToGuestCart} from '../../app/Cart/CartSlice'
 import axios from "axios";
 
 const SingleProduct = () => {
     const { id } = useParams();
     const product = useSelector((state) => state.singleProduct.product)
     const user = useSelector((state) => state.auth.me)
+
+
+
+
     const order = useSelector((state) => state.cart)
+
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchSingleProduct(id))
         
     }, [])
+
+    const navigate = useNavigate();
+    
+
+    //const {items, status } = useSelector(state)
+
 
     const addToCartFunction = async(e) => {
         e.preventDefault();
@@ -25,6 +36,14 @@ const SingleProduct = () => {
         console.log('State.me:', user)
         // console.log("Order:", order)
     }
+
+
+    const handleAddToGuestCart = (product) => {
+        dispatch(addToGuestCart(product))
+        navigate("/cart");
+    }
+
+
     console.log('State.me:', user)
     console.log("Order:", order)
     console.log("Product", product)
@@ -35,6 +54,7 @@ const SingleProduct = () => {
             <div><p>{product.desc}</p></div>
             <div><h3>{product.price}</h3></div>
             <button onClick={(e)=> addToCartFunction(e, product.id)}> Add to Cart</button>
+            <button onClick={() => handleAddToGuestCart(product)}>Add to Guest Cart</button>
         </div>
 
     )
