@@ -1,10 +1,28 @@
 import React from "react";
 import { CartSummary } from "../index";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { increaseItemGuestCart, decreaseItemGuestCart} from '../../app/Cart/CartSlice'
+
+
+
+
+
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+
+  const dispatch = useDispatch()
+
+  const handleIncreaseQuantity = async(e) =>
+  dispatch(increaseItemGuestCart(cartItem.cartQuantity))
+
+  const handleDecreaseQuantity = async(e) =>
+  dispatch(decreaseItemGuestCart(cartItem.cartQuantity))
+
+
+
+
   return (
     <div>
       {/* write a ternary conditional operator to show that if user doesn't have anything in cart, show a "nothing in cart page"  */}
@@ -33,6 +51,9 @@ const Cart = () => {
                 <div className="cart-item" key={cartItem.id}>
                 <h3>{cartItem.name}</h3>
                 <img src={cartItem.image}/>
+                <button onClick={() => handleIncreaseQuantity(cartItem.cartQuantity)}>+</button>
+                <button onClick={() => handleDecreaseQuantity(cartItem.cartQuantity)}>-</button>
+
                 </div>
                 )
             )}

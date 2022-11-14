@@ -56,6 +56,13 @@ const cartSlice = createSlice({
            }
          localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
         },
+
+        increaseItemGuestCart(state, action){
+            // +1 to cart quantity
+        },
+        decreaseItemGuestCart(state, action) {
+            // -1 to cart quantity
+        }
     },
     extraReducers:(builder) =>{
         builder.addCase(addToCart.fulfilled, (state, action) => {

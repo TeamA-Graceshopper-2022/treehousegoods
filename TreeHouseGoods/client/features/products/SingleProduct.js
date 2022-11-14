@@ -40,7 +40,7 @@ const SingleProduct = () => {
 
     const handleAddToGuestCart = (product) => {
         dispatch(addToGuestCart(product))
-        navigate("/cart");
+       // navigate("/cart");
     }
 
 
