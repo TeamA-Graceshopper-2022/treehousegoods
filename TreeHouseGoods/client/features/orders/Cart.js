@@ -6,7 +6,7 @@ import { increaseItemGuestCart, decreaseItemGuestCart} from '../../app/Cart/Cart
 
 
 
-
+// figure out what to pass into the reducers here or how to define item
 
 
 const Cart = () => {
@@ -15,10 +15,10 @@ const Cart = () => {
   const dispatch = useDispatch()
 
   const handleIncreaseQuantity = async(e) =>
-  dispatch(increaseItemGuestCart(cartItem.cartQuantity))
+  dispatch(increaseItemGuestCart(Item))
 
   const handleDecreaseQuantity = async(e) =>
-  dispatch(decreaseItemGuestCart(cartItem.cartQuantity))
+  dispatch(decreaseItemGuestCart(Item))
 
 
 
@@ -51,8 +51,8 @@ const Cart = () => {
                 <div className="cart-item" key={cartItem.id}>
                 <h3>{cartItem.name}</h3>
                 <img src={cartItem.image}/>
-                <button onClick={() => handleIncreaseQuantity(cartItem.cartQuantity)}>+</button>
-                <button onClick={() => handleDecreaseQuantity(cartItem.cartQuantity)}>-</button>
+                <button onClick={() => handleIncreaseQuantity(cartItem)}>+</button>
+                <button onClick={() => handleDecreaseQuantity(cartItem)}>-</button>
 
                 </div>
                 )

@@ -5646,13 +5646,20 @@ var cartSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createSlice)({
         state.cartItems.push(tempProduct);
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-    },
-    increaseItemGuestCart: function increaseItemGuestCart(state, action) {
-      // +1 to cart quantity
-    },
-    decreaseItemGuestCart: function decreaseItemGuestCart(state, action) {
-      // -1 to cart quantity
     }
+    /* 
+       increaseItemGuestCart(state, action){
+            // +1 to cart quantity
+        },
+        decreaseItemGuestCart(state, action) {
+            const itemIndex = state.cartItems.findIndex(item)
+             => item.id === action.payload.id);
+             
+             if () {   /// check the quantity and if matches params than subtract 1
+              } else if // quanity is 0, remove from cart
+             
+        },
+      */
   },
   extraReducers: function extraReducers(builder) {
     builder.addCase(addToCart.fulfilled, function (state, action) {
@@ -6289,6 +6296,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
+// figure out what to pass into the reducers here or how to define item
+
 var Cart = function Cart() {
   var cart = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(function (state) {
     return state.cart;
@@ -6300,7 +6310,7 @@ var Cart = function Cart() {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              return _context.abrupt("return", dispatch((0,_app_Cart_CartSlice__WEBPACK_IMPORTED_MODULE_3__.increaseItemGuestCart)(cartItem.cartQuantity)));
+              return _context.abrupt("return", dispatch((0,_app_Cart_CartSlice__WEBPACK_IMPORTED_MODULE_3__.increaseItemGuestCart)(Item)));
             case 1:
             case "end":
               return _context.stop();
@@ -6318,7 +6328,7 @@ var Cart = function Cart() {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              return _context2.abrupt("return", dispatch((0,_app_Cart_CartSlice__WEBPACK_IMPORTED_MODULE_3__.decreaseItemGuestCart)(cartItem.cartQuantity)));
+              return _context2.abrupt("return", dispatch((0,_app_Cart_CartSlice__WEBPACK_IMPORTED_MODULE_3__.decreaseItemGuestCart)(Item)));
             case 1:
             case "end":
               return _context2.stop();
@@ -6348,11 +6358,11 @@ var Cart = function Cart() {
       src: cartItem.image
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
       onClick: function onClick() {
-        return handleIncreaseQuantity(cartItem.cartQuantity);
+        return handleIncreaseQuantity(cartItem);
       }
     }, "+"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
       onClick: function onClick() {
-        return handleDecreaseQuantity(cartItem.cartQuantity);
+        return handleDecreaseQuantity(cartItem);
       }
     }, "-"));
   }))));
