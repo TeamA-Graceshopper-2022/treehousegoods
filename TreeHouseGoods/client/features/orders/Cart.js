@@ -20,7 +20,7 @@ const Cart = () => {
       ) : (
 
         <div>
-            <div>
+            <div className = "cartHeaders">
              <h1>Cart Summary</h1>
              <h3>Product</h3>
              <h3>Price</h3>
