@@ -31,7 +31,7 @@ const SingleProduct = () => {
         e.preventDefault();
         
         dispatch(findOrCreateCart(user.id))
-        dispatch(addToCart(product.id, 3))
+        dispatch(addToCart(product.id, order.id))
         console.log('Product Id:', product.id)
         console.log('State.me:', user)
         // console.log("Order:", order)
