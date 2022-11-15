@@ -2,8 +2,8 @@ import React from "react";
 import { CartSummary } from "../index";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { addToGuestCart} from '../../app/Cart/CartSlice'
-
+import { addToGuestCart, removeFromGuestCart} from '../../app/Cart/CartSlice'
+import axios from "axios";
 
 
 // figure out what to pass into the reducers here or how to define item
@@ -11,17 +11,18 @@ import { addToGuestCart} from '../../app/Cart/CartSlice'
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
-
   const dispatch = useDispatch()
 
-  const handleIncreaseQuantity = async(e) =>
-  dispatch(increaseItemGuestCart(Item))
+  //const handleIncreaseQuantity = async(cartItem) =>
+  //dispatch(increaseItemGuestCart(Item))
 
-  const handleDecreaseQuantity = async(e) =>
-  dispatch(decreaseItemGuestCart(Item))
+  //const handleDecreaseQuantity = async(cartItem) =>
+  //dispatch(decreaseItemGuestCart(Item))
 
 
-
+const handleRemoveFromGuestCart = async(product) => {
+  dispatch(removeFromGuestCart(product))
+}
 
   return (
     <div className="cart-container">
@@ -52,12 +53,15 @@ const Cart = () => {
                      <h3>{cartItem.name}</h3>
                      <img src={cartItem.image}/>
                      <p>{cart.desc}</p>
+                     <button onClick={() => handleRemoveFromGuestCart(cartItem)}>Remove</button>
+                      
+                </div>
+         
                      <div className="cart-item-price">${cartItem.price}</div>
                      <div className ="item-amount">{cartItem.cartQuantity}</div>
-                 
-                </div>
                 </div>
                 )
+                
             )}
             </div> 
        {/**<CartSummary /> */}
