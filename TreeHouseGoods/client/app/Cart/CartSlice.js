@@ -56,20 +56,29 @@ const cartSlice = createSlice({
            }
            localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
         },
-    /* 
+
+        // return those items in array that without the item with the id that matches
+        removeFromGuestCart(state, action) {
+            const newCart = state.cartItems.filter(
+                cartItem => cartItem.id != action.payload.id
+            )
+            state.cartItems = newCart;
+        },
+     
        increaseItemGuestCart(state, action){
             // +1 to cart quantity
+            const itemIndex = state.cartItems.findIndex(
+                item => item.id === action.payload.id  // we are using findIndex to check if the cart items already has the cart item we want to add. If true,  we have items in cart
+            
+            ); 
+            state.cartItems[itemIndex].cartQuantity += 1
+
         },
         decreaseItemGuestCart(state, action) {
-            const itemIndex = state.cartItems.findIndex(item)
-             => item.id === action.payload.id);
-             
-             if () {   /// check the quantity and if matches params than subtract 1
-
-             } else if // quanity is 0, remove from cart
+            const itemIndex = state.cartItems.findIndex(item => item.id === action.payload.id);
+                state.cartItems[itemIndex].cartQuantity -= 1
              
         },
-      */
     },
     extraReducers:(builder) =>{
         builder.addCase(addToCart.fulfilled, (state, action) => {
@@ -80,5 +89,5 @@ const cartSlice = createSlice({
         })
     },
 });
-export const { addToGuestCart } = cartSlice.actions; // this will be our action creator
+export const { addToGuestCart, removeFromGuestCart, increaseItemGuestCart, decreaseItemGuestCart } = cartSlice.actions; // this will be our action creator
 export default cartSlice.reducer;
