@@ -2,7 +2,7 @@ import React from "react";
 import { CartSummary } from "../index";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { increaseItemGuestCart, decreaseItemGuestCart} from '../../app/Cart/CartSlice'
+import { addToGuestCart} from '../../app/Cart/CartSlice'
 
 
 
@@ -24,9 +24,9 @@ const Cart = () => {
 
 
   return (
-    <div>
+    <div className="cart-container">
       {/* write a ternary conditional operator to show that if user doesn't have anything in cart, show a "nothing in cart page"  */}
-      <h2>In Cart</h2>
+      <h2>Cart Summary</h2>
       {cart.cartItems.length === 0 ? (
         <div className="cart-empty">
           <p>Your cart is currently empty</p>
@@ -39,21 +39,23 @@ const Cart = () => {
 
         <div>
             <div className = "cartHeaders">
-             <h1>Cart Summary</h1>
-             <h3>Product</h3>
-             <h3>Price</h3>
-             <h3>Quantity</h3>
-             <h3>Total</h3>
+             <h3 className ="product-header">Product</h3>
+             <h3 className ="price-header">Price</h3>
+             <h3 className ="quantity-header">Quantity</h3>
+             <h3 className ="total-header">Total</h3>
             </div>
             <div className="cart-items">
             {cart.cartItems &&
             cart.cartItems.map((cartItem)=> (
                 <div className="cart-item" key={cartItem.id}>
-                <h3>{cartItem.name}</h3>
-                <img src={cartItem.image}/>
-                <button onClick={() => handleIncreaseQuantity(cartItem)}>+</button>
-                <button onClick={() => handleDecreaseQuantity(cartItem)}>-</button>
-
+                 <div className='cart-product'>
+                     <h3>{cartItem.name}</h3>
+                     <img src={cartItem.image}/>
+                     <p>{cart.desc}</p>
+                     <div className="cart-item-price">${cartItem.price}</div>
+                     <div className ="item-amount">{cartItem.cartQuantity}</div>
+                 
+                </div>
                 </div>
                 )
             )}
@@ -65,3 +67,12 @@ const Cart = () => {
 )};
 
 export default Cart;
+
+
+
+{/**{//** 
+                    <button onClick={() => addToGuestCart(cartItem)}>+</button>
+                    <button onClick={() => handleDecreaseQuantity(cartItem)}>-</button>
+
+                    increaseItemGuestCart, decreaseItemGuestCart, 
+                 */} 
