@@ -26,7 +26,6 @@ const handleRemoveFromGuestCart = async(product) => {
 
   return (
     <div className="cart-container">
-      {/* write a ternary conditional operator to show that if user doesn't have anything in cart, show a "nothing in cart page"  */}
       <h2>Cart Summary</h2>
       {cart.cartItems.length === 0 ? (
         <div className="cart-empty">
@@ -66,7 +65,7 @@ const handleRemoveFromGuestCart = async(product) => {
                 
             )}
             </div> 
-       {/**<CartSummary /> */}
+       <CartSummary /> 
       </div>
       )}
   </div>
