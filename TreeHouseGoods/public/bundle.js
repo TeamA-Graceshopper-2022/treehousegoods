@@ -5600,18 +5600,18 @@ var AppRoutes = function AppRoutes() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
     path: "/home",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_features_home_Home__WEBPACK_IMPORTED_MODULE_4__["default"], null)
-  }), isAdmin ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+  }), isAdmin ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
     path: "/admin/",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_features__WEBPACK_IMPORTED_MODULE_2__.AdminDashboard, null)
-  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
-    path: "/user/",
-    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_features__WEBPACK_IMPORTED_MODULE_2__.UserDashboard, null)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
     path: "/admin/products",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_features__WEBPACK_IMPORTED_MODULE_2__.CreateProduct, null), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_features__WEBPACK_IMPORTED_MODULE_2__.AdminProducts, null))
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
     path: "/admin/products/:id",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_features__WEBPACK_IMPORTED_MODULE_2__.ReviseProduct, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_features__WEBPACK_IMPORTED_MODULE_2__.SingleProduct, null))
+  })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+    path: "/user/",
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_features__WEBPACK_IMPORTED_MODULE_2__.UserDashboard, null)
   })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Routes, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
     path: "/login",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_features_auth_AuthForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -5656,8 +5656,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "addToCart": () => (/* binding */ addToCart),
 /* harmony export */   "addToGuestCart": () => (/* binding */ addToGuestCart),
+/* harmony export */   "decreaseItemGuestCart": () => (/* binding */ decreaseItemGuestCart),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
 /* harmony export */   "findOrCreateCart": () => (/* binding */ findOrCreateCart),
+/* harmony export */   "increaseItemGuestCart": () => (/* binding */ increaseItemGuestCart),
 /* harmony export */   "removeFromGuestCart": () => (/* binding */ removeFromGuestCart)
 /* harmony export */ });
 /* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
@@ -5672,39 +5674,40 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 var addToCart = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createAsyncThunk)("addToCart", /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(productId, orderId) {
-    var _yield$axios$post, data;
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(_ref) {
+    var productId, orderId, _yield$axios$post, data;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.prev = 0;
-            _context.next = 3;
+            productId = _ref.productId, orderId = _ref.orderId;
+            _context.prev = 1;
+            _context.next = 4;
             return axios__WEBPACK_IMPORTED_MODULE_0__["default"].post("/api/orders/order_products", {
               productId: productId,
               orderId: orderId
             });
-          case 3:
+          case 4:
             _yield$axios$post = _context.sent;
             data = _yield$axios$post.data;
             return _context.abrupt("return", data);
-          case 8:
-            _context.prev = 8;
-            _context.t0 = _context["catch"](0);
+          case 9:
+            _context.prev = 9;
+            _context.t0 = _context["catch"](1);
             next(_context.t0);
-          case 11:
+          case 12:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 8]]);
+    }, _callee, null, [[1, 9]]);
   }));
-  return function (_x, _x2) {
-    return _ref.apply(this, arguments);
+  return function (_x) {
+    return _ref2.apply(this, arguments);
   };
 }());
 var findOrCreateCart = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createAsyncThunk)("findOrCreateCart", /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(id) {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(id) {
     var _yield$axios$post2, data;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) {
@@ -5728,8 +5731,8 @@ var findOrCreateCart = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createAs
       }
     }, _callee2, null, [[0, 8]]);
   }));
-  return function (_x3) {
-    return _ref2.apply(this, arguments);
+  return function (_x2) {
+    return _ref3.apply(this, arguments);
   };
 }());
 var initialState = {
@@ -5769,20 +5772,22 @@ var cartSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createSlice)({
         return cartItem.id != action.payload.id;
       });
       state.cartItems = newCart;
+    },
+    increaseItemGuestCart: function increaseItemGuestCart(state, action) {
+      // +1 to cart quantity
+      var itemIndex = state.cartItems.findIndex(function (item) {
+        return item.id === action.payload.id;
+      } // we are using findIndex to check if the cart items already has the cart item we want to add. If true,  we have items in cart
+      );
+
+      state.cartItems[itemIndex].cartQuantity += 1;
+    },
+    decreaseItemGuestCart: function decreaseItemGuestCart(state, action) {
+      var itemIndex = state.cartItems.findIndex(function (item) {
+        return item.id === action.payload.id;
+      });
+      state.cartItems[itemIndex].cartQuantity -= 1;
     }
-    /* 
-       increaseItemGuestCart(state, action){
-            // +1 to cart quantity
-        },
-        decreaseItemGuestCart(state, action) {
-            const itemIndex = state.cartItems.findIndex(item)
-             => item.id === action.payload.id);
-             
-             if () {   /// check the quantity and if matches params than subtract 1
-              } else if // quanity is 0, remove from cart
-             
-        },
-      */
   },
   extraReducers: function extraReducers(builder) {
     builder.addCase(addToCart.fulfilled, function (state, action) {
@@ -5794,7 +5799,9 @@ var cartSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createSlice)({
 });
 var _cartSlice$actions = cartSlice.actions,
   addToGuestCart = _cartSlice$actions.addToGuestCart,
-  removeFromGuestCart = _cartSlice$actions.removeFromGuestCart; // this will be our action creator
+  removeFromGuestCart = _cartSlice$actions.removeFromGuestCart,
+  increaseItemGuestCart = _cartSlice$actions.increaseItemGuestCart,
+  decreaseItemGuestCart = _cartSlice$actions.decreaseItemGuestCart; // this will be our action creator
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (cartSlice.reducer);
 
@@ -6810,20 +6817,13 @@ var Cart = function Cart() {
     return state.cart;
   });
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useDispatch)();
-
-  //const handleIncreaseQuantity = async(cartItem) =>
-  //dispatch(increaseItemGuestCart(Item))
-
-  //const handleDecreaseQuantity = async(cartItem) =>
-  //dispatch(decreaseItemGuestCart(Item))
-
-  var handleRemoveFromGuestCart = /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(product) {
+  var handleIncreaseQuantity = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(cartItem) {
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              dispatch((0,_app_Cart_CartSlice__WEBPACK_IMPORTED_MODULE_3__.removeFromGuestCart)(product));
+              return _context.abrupt("return", dispatch((0,_app_Cart_CartSlice__WEBPACK_IMPORTED_MODULE_3__.increaseItemGuestCart)(cartItem)));
             case 1:
             case "end":
               return _context.stop();
@@ -6831,8 +6831,44 @@ var Cart = function Cart() {
         }
       }, _callee);
     }));
-    return function handleRemoveFromGuestCart(_x) {
+    return function handleIncreaseQuantity(_x) {
       return _ref.apply(this, arguments);
+    };
+  }();
+  var handleDecreaseQuantity = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(cartItem) {
+      return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              return _context2.abrupt("return", dispatch((0,_app_Cart_CartSlice__WEBPACK_IMPORTED_MODULE_3__.decreaseItemGuestCart)(cartItem)));
+            case 1:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+    return function handleDecreaseQuantity(_x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+  var handleRemoveFromGuestCart = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(product) {
+      return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              dispatch((0,_app_Cart_CartSlice__WEBPACK_IMPORTED_MODULE_3__.removeFromGuestCart)(product));
+            case 1:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+    return function handleRemoveFromGuestCart(_x3) {
+      return _ref3.apply(this, arguments);
     };
   }();
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
@@ -6867,7 +6903,15 @@ var Cart = function Cart() {
       onClick: function onClick() {
         return handleRemoveFromGuestCart(cartItem);
       }
-    }, "Remove")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    }, "Remove"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+      onClick: function onClick() {
+        return handleIncreaseQuantity(cartItem);
+      }
+    }, "+"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+      onClick: function onClick() {
+        return handleDecreaseQuantity(cartItem);
+      }
+    }, "-")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       className: "cart-item-price"
     }, "$", cartItem.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       className: "item-amount"
@@ -6878,7 +6922,8 @@ var Cart = function Cart() {
 {/**{//** 
                     <button onClick={() => addToGuestCart(cartItem)}>+</button>
                     <button onClick={() => handleDecreaseQuantity(cartItem)}>-</button>
-                     increaseItemGuestCart, decreaseItemGuestCart, 
+ 
+                    increaseItemGuestCart, decreaseItemGuestCart, 
                  */}
 
 /***/ }),
@@ -7189,10 +7234,13 @@ var SingleProduct = function SingleProduct() {
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     dispatch((0,_app_SingleProductSlice_SingleProductSlice__WEBPACK_IMPORTED_MODULE_2__.fetchSingleProduct)(id));
+    dispatch((0,_app_Cart_CartSlice__WEBPACK_IMPORTED_MODULE_3__.findOrCreateCart)(user.id));
   }, []);
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useNavigate)();
+  //try and see if can load up the cart before even adding the cart
 
   //const {items, status } = useSelector(state)
+  // console.log("orderId", order)
 
   var addToCartFunction = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(e) {
@@ -7201,12 +7249,16 @@ var SingleProduct = function SingleProduct() {
           switch (_context.prev = _context.next) {
             case 0:
               e.preventDefault();
-              dispatch((0,_app_Cart_CartSlice__WEBPACK_IMPORTED_MODULE_3__.findOrCreateCart)(user.id));
-              dispatch((0,_app_Cart_CartSlice__WEBPACK_IMPORTED_MODULE_3__.addToCart)(product.id, order.id));
-              console.log('Product Id:', product.id);
-              console.log('State.me:', user);
+              console.log("Order:", order);
+              // dispatch(findOrCreateCart(user.id))
+              dispatch((0,_app_Cart_CartSlice__WEBPACK_IMPORTED_MODULE_3__.addToCart)({
+                productId: product.id,
+                orderId: order.id
+              }));
+              // console.log('Product Id:', product.id)
+              // console.log('State.me:', user)
               // console.log("Order:", order)
-            case 5:
+            case 3:
             case "end":
               return _context.stop();
           }

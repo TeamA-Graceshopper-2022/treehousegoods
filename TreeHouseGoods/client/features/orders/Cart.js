@@ -2,7 +2,7 @@ import React from "react";
 import { CartSummary } from "../index";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { addToGuestCart, removeFromGuestCart} from '../../app/Cart/CartSlice'
+import { addToGuestCart, removeFromGuestCart, increaseItemGuestCart, decreaseItemGuestCart} from '../../app/Cart/CartSlice'
 import axios from "axios";
 
 
@@ -13,11 +13,11 @@ const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch()
 
-  //const handleIncreaseQuantity = async(cartItem) =>
-  //dispatch(increaseItemGuestCart(Item))
+  const handleIncreaseQuantity = async(cartItem) =>
+  dispatch(increaseItemGuestCart(cartItem))
 
-  //const handleDecreaseQuantity = async(cartItem) =>
-  //dispatch(decreaseItemGuestCart(Item))
+  const handleDecreaseQuantity = async(cartItem) =>
+  dispatch(decreaseItemGuestCart(cartItem))
 
 
 const handleRemoveFromGuestCart = async(product) => {
@@ -53,6 +53,8 @@ const handleRemoveFromGuestCart = async(product) => {
                      <img src={cartItem.image}/>
                      <p>{cart.desc}</p>
                      <button onClick={() => handleRemoveFromGuestCart(cartItem)}>Remove</button>
+                     <button onClick={() => handleIncreaseQuantity(cartItem)}>+</button>
+                     <button onClick={() => handleDecreaseQuantity(cartItem)}>-</button>
                       
                 </div>
          
