@@ -56,6 +56,14 @@ const cartSlice = createSlice({
            }
            localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
         },
+
+        // return those items in array that without the item with the id that matches
+        removeFromGuestCart(state, action) {
+            const newCart = state.cartItems.filter(
+                cartItem => cartItem.id != action.payload.id
+            )
+            state.cartItems = newCart;
+        },
     /* 
        increaseItemGuestCart(state, action){
             // +1 to cart quantity
@@ -80,5 +88,5 @@ const cartSlice = createSlice({
         })
     },
 });
-export const { addToGuestCart } = cartSlice.actions; // this will be our action creator
+export const { addToGuestCart, removeFromGuestCart } = cartSlice.actions; // this will be our action creator
 export default cartSlice.reducer;
