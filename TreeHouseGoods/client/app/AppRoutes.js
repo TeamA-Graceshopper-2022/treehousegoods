@@ -30,9 +30,15 @@ const AppRoutes = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
-          {isAdmin ? (<Route path="/admin/" element={<AdminDashboard/>}/>) : (<Route path="/user/" element={<UserDashboard/>} />)}
+          {isAdmin ? (
+            <>
+          <Route path="/admin/" element={<AdminDashboard/>}/>
           <Route path="/admin/products" element={<><CreateProduct/> <AdminProducts/></>}/>
           <Route path="/admin/products/:id" element={<> <ReviseProduct/><SingleProduct/></>}/>
+          </>
+          ) : 
+          (<Route path="/user/" element={<UserDashboard/>} />)}
+          
         </Routes>
       ) : (
         <Routes>
