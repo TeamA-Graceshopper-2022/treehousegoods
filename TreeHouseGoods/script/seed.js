@@ -15,6 +15,7 @@ async function seed() {
     User.create({ username: 'cody', password: '123', firstname: 'Cody', lastname: 'Franklin', addressSt: '789 Dash St', addressCity: 'New York City', addressState: 'NY', addressZip: '00000', email: 'cody@gmail.com' }),
     User.create({ username: 'murphy', password: '123', firstname: 'Murphy', lastname: 'Doe', addressSt: '987 Dash St', addressCity: 'Dover', addressState: 'DE', addressZip: '00000', email: 'murphy@gmail.com' }),
     User.create({ username: 'remi', password: '123', firstname: 'Remi', lastname: 'Dog', addressSt: '555 Dash St', addressCity: 'Miami', addressState: 'FL', addressZip: '33132', email: 'remi@gmail.com' }),
+    User.create({ isAdmin: true, username: 'teamA', password: '123', firstname: 'Team', lastname: 'A', addressSt: '123 USA St', addressCity: 'USA', addressState: 'US', addressZip: '00000', email: 'teama@gmail.com' }),
   ])
 
   const products = await Promise.all([

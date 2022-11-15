@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const { TokenExpiredError } = require('jsonwebtoken');
 const { models: { Product, Order_product }} = require('../db')
 module.exports = router
 
@@ -53,3 +54,33 @@ router.get('/:id/order_products', async (req, res, next) => {
   }
 })
 
+// Route to add product
+router.post('/', async (req,res,next) => {
+  try{
+    const newProduct = await Product.create(req.body)
+    res.send(newProduct)
+  }catch(err){
+    next(err)
+  }
+} )
+
+// Route to edit product
+router.put('/:id', async (req,res,next) => {
+  try{
+    const editProduct = await Product.findByPk(req.params.id)
+    res.send(await editProduct.update(req.body))
+  }catch(err){
+    next(err)
+  }
+})
+
+// Route to delete product
+router.delete('/:id', async (req,res,next)=>{
+  try{
+    const { id } = req.params
+    const deleteProduct = await Product.findByPk(id)
+    res.send(await deleteProduct.destroy())
+  }catch(err){
+    next(err)
+  }
+})
