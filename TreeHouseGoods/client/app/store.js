@@ -6,6 +6,7 @@ import singleProductSlice from './SingleProductSlice/SingleProductSlice';
 import UserSignUpSlice from './UserSlice/UserSignUpSlice';
 import CartSlice from './Cart/CartSlice';
 import AdminDashboardSlice from './Dashboard/AdminDashboardSlice';
+import OrdersSlice from './OrdersSlice/Orders';
 
 const store = configureStore({
   reducer: { auth: authReducer,
@@ -14,6 +15,7 @@ const store = configureStore({
   newUser: UserSignUpSlice,
   cart: CartSlice,
   adminDashboard: AdminDashboardSlice,
+  orders: OrdersSlice,
 },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
