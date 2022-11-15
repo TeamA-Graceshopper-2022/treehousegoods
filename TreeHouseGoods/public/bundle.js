@@ -5674,39 +5674,40 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 var addToCart = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createAsyncThunk)("addToCart", /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(productId, orderId) {
-    var _yield$axios$post, data;
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(_ref) {
+    var productId, orderId, _yield$axios$post, data;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.prev = 0;
-            _context.next = 3;
+            productId = _ref.productId, orderId = _ref.orderId;
+            _context.prev = 1;
+            _context.next = 4;
             return axios__WEBPACK_IMPORTED_MODULE_0__["default"].post("/api/orders/order_products", {
               productId: productId,
               orderId: orderId
             });
-          case 3:
+          case 4:
             _yield$axios$post = _context.sent;
             data = _yield$axios$post.data;
             return _context.abrupt("return", data);
-          case 8:
-            _context.prev = 8;
-            _context.t0 = _context["catch"](0);
+          case 9:
+            _context.prev = 9;
+            _context.t0 = _context["catch"](1);
             next(_context.t0);
-          case 11:
+          case 12:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 8]]);
+    }, _callee, null, [[1, 9]]);
   }));
-  return function (_x, _x2) {
-    return _ref.apply(this, arguments);
+  return function (_x) {
+    return _ref2.apply(this, arguments);
   };
 }());
 var findOrCreateCart = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createAsyncThunk)("findOrCreateCart", /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(id) {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(id) {
     var _yield$axios$post2, data;
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) {
@@ -5730,8 +5731,8 @@ var findOrCreateCart = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createAs
       }
     }, _callee2, null, [[0, 8]]);
   }));
-  return function (_x3) {
-    return _ref2.apply(this, arguments);
+  return function (_x2) {
+    return _ref3.apply(this, arguments);
   };
 }());
 var initialState = {
@@ -7169,10 +7170,13 @@ var SingleProduct = function SingleProduct() {
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     dispatch((0,_app_SingleProductSlice_SingleProductSlice__WEBPACK_IMPORTED_MODULE_2__.fetchSingleProduct)(id));
+    dispatch((0,_app_Cart_CartSlice__WEBPACK_IMPORTED_MODULE_3__.findOrCreateCart)(user.id));
   }, []);
   var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useNavigate)();
+  //try and see if can load up the cart before even adding the cart
 
   //const {items, status } = useSelector(state)
+  // console.log("orderId", order)
 
   var addToCartFunction = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(e) {
@@ -7181,12 +7185,16 @@ var SingleProduct = function SingleProduct() {
           switch (_context.prev = _context.next) {
             case 0:
               e.preventDefault();
-              dispatch((0,_app_Cart_CartSlice__WEBPACK_IMPORTED_MODULE_3__.findOrCreateCart)(user.id));
-              dispatch((0,_app_Cart_CartSlice__WEBPACK_IMPORTED_MODULE_3__.addToCart)(product.id, order.id));
-              console.log('Product Id:', product.id);
-              console.log('State.me:', user);
+              console.log("Order:", order);
+              // dispatch(findOrCreateCart(user.id))
+              dispatch((0,_app_Cart_CartSlice__WEBPACK_IMPORTED_MODULE_3__.addToCart)({
+                productId: product.id,
+                orderId: order.id
+              }));
+              // console.log('Product Id:', product.id)
+              // console.log('State.me:', user)
               // console.log("Order:", order)
-            case 5:
+            case 3:
             case "end":
               return _context.stop();
           }

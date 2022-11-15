@@ -18,25 +18,27 @@ const SingleProduct = () => {
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchSingleProduct(id))
-        
+        dispatch(findOrCreateCart(user.id))
     }, [])
 
     const navigate = useNavigate();
-    
+    //try and see if can load up the cart before even adding the cart
 
     //const {items, status } = useSelector(state)
-
+    // console.log("orderId", order)
 
     const addToCartFunction = async(e) => {
         e.preventDefault();
-        
-        dispatch(findOrCreateCart(user.id))
-        dispatch(addToCart(product.id, order.id))
-        console.log('Product Id:', product.id)
-        console.log('State.me:', user)
+        console.log("Order:", order)
+        // dispatch(findOrCreateCart(user.id))
+        dispatch(addToCart({productId: product.id, orderId: order.id}))
+        // console.log('Product Id:', product.id)
+        // console.log('State.me:', user)
         // console.log("Order:", order)
     }
-
+    //one add to cart Fn, if logged in, run dispatch findOrCreateCart, otherwise run addToGuestCart
+    //break through bugs
+    //styling takes time
 
     const handleAddToGuestCart = (product) => {
         dispatch(addToGuestCart(product))
