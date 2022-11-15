@@ -5483,8 +5483,9 @@ var deleteProduct = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createAsync
           case 2:
             _yield$axios$delete = _context5.sent;
             data = _yield$axios$delete.data;
+            console.log("data", data);
             return _context5.abrupt("return", data);
-          case 5:
+          case 6:
           case "end":
             return _context5.stop();
         }
@@ -5515,7 +5516,10 @@ var productsSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createSlice
     }), builder.addCase(editProduct.fulfilled, function (state, action) {
       return action.payload;
     }), builder.addCase(deleteProduct.fulfilled, function (state, action) {
-      return {};
+      var newState = state.products.filter(function (product) {
+        return product.id !== action.payload.id;
+      });
+      state.products = newState;
     });
   }
 });
@@ -6976,6 +6980,9 @@ var AdminProducts = function AdminProducts() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     category ? dispatch((0,_app_AllProductsSlice_allProductsSlice__WEBPACK_IMPORTED_MODULE_2__.fetchProductsByCat)(category)) : dispatch((0,_app_AllProductsSlice_allProductsSlice__WEBPACK_IMPORTED_MODULE_2__.fetchAllProducts)());
   }, [category]);
+  var clickDeleteHandler = function clickDeleteHandler(id) {
+    dispatch((0,_app_AllProductsSlice_allProductsSlice__WEBPACK_IMPORTED_MODULE_2__.deleteProduct)(id));
+  };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Product Manager"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "allProductsContainer"
   }, products.map(function (product) {
@@ -6993,14 +7000,14 @@ var AdminProducts = function AdminProducts() {
       className: "itemPrice"
     }, product.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
       type: "button",
+      id: product.id,
       onClick: /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                dispatch((0,_app_AllProductsSlice_allProductsSlice__WEBPACK_IMPORTED_MODULE_2__.deleteProduct)(product.id));
-                navigate('/admin/products');
-              case 2:
+                clickDeleteHandler(product.id);
+              case 1:
               case "end":
                 return _context.stop();
             }

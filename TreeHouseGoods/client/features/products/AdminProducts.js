@@ -12,6 +12,11 @@ const AdminProducts = () => {
     useEffect(() => {
         category ? dispatch(fetchProductsByCat(category)) : dispatch(fetchAllProducts())
     }, [category])
+
+    const clickDeleteHandler = (id) => {
+        dispatch(deleteProduct(id));
+    }
+
     return(
         <div><h1>Product Manager</h1>
         <div className="allProductsContainer">
@@ -21,8 +26,8 @@ const AdminProducts = () => {
                     <div><Link to={`/admin/products/${product.id}`}><h3>{product.name}</h3></Link></div>
                     <div><Link to={`/admin/products/${product.id}`}><img className="allView" src={product.image}/></Link></div>
                     <div className="itemPrice">{product.price}</div>
-                    <button type="button" onClick={async () => {
-                        dispatch(deleteProduct(product.id)); navigate('/admin/products')
+                    <button type="button" id={product.id} onClick={async () => {
+                        clickDeleteHandler(product.id)
                     }} className="deleteButton">
                         X
                     </button>
