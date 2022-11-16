@@ -30,24 +30,70 @@ const Cart = () => {
   };
 
   return (
-    <div className="cart-container">
-      <h2>Cart Summary</h2>
-      {cart.cartItems.length === 0 ? (
-        <div className="cart-empty">
-          <p>Your cart is currently empty</p>
-          <div className="start-shopping">
-            <Link to="/products">Start Shopping </Link>
-          </div>
-        </div>
-      ) : (
-        <div>
-          <div className="cartHeaders">
-            <h3 className="product-header">Product</h3>
-            <h3 className="price-header">Price</h3>
-            <h3 className="quantity-header">Quantity</h3>
-            <h3 className="total-header">Total</h3>
-          </div>
-          <div className="cart-items">
+    <>
+        {isLoggedIn ? (
+            <>
+            {(order.length === 0) ? (
+                <>
+                    {/* // where the logged in user's empty cart  */}
+                    <div className="cart-empty">
+                        <p>Your cart is currently empty</p>
+                        <div className="start-shopping">
+                        <Link to="/">Start Shopping </Link>
+                        </div>
+                    </div>
+                </>
+            ) : (
+                <>
+                    {/* // where the logged in user's cart is: */}
+                    <>
+                    <div className="cartHeaders">
+                        <h3 className="product-header">Product</h3>
+                        <h3 className="price-header">Price</h3>
+                        <h3 className="quantity-header">Quantity</h3>
+                        <h3 className="total-header">Total</h3>
+                    </div>
+                    <div className="cart-items">
+                        {order &&
+                            order.map((cartItem) => (
+                            <div className="cart-item" key={cartItem.id}>
+                                <div className="cart-product">
+                                    <h3>{cartItem.name}</h3>
+                                    <img src={cartItem.image} />
+                                    <p>{cart.desc}</p>
+                                    <button onClick={() => handleRemoveFromGuestCart(cartItem)}>Remove</button>
+                                    <button onClick={() => handleIncreaseQuantity(cartItem)}>+</button>
+                                    <button onClick={() => handleDecreaseQuantity(cartItem)}>-</button>
+                    </div>
+                    <div className="cart-item-price">${cartItem.price}</div>
+                    <div className="item-amount">{cartItem.cartQuantity}</div>
+                </div>
+              ))}
+            </div>
+            <CartSummary />
+            <h3>Ready to Checkout?</h3>
+            <button onClick={() => navigate("/checkout")}> Checkout Here! </button></>
+            </>
+            ) }
+        </>
+        ) : (<>
+        {/* Below is for guest cart info: */}
+        {(cart.cartItems.length === 0) ? (
+                    <div className="cart-empty">
+                    <p>Your cart is currently empty</p>
+                    <div className="start-shopping">
+                      <Link to="/">Start Shopping </Link>
+                    </div>
+                  </div>
+        ) : (<>
+            {/* This is the not empty guest cart: */}
+            <div className="cartHeaders">
+                <h3 className="product-header">Product</h3>
+                <h3 className="price-header">Price</h3>
+                <h3 className="quantity-header">Quantity</h3>
+                <h3 className="total-header">Total</h3>
+            </div>
+            <div className="cart-items">
             {cart.cartItems &&
               cart.cartItems.map((cartItem) => (
                 <div className="cart-item" key={cartItem.id}>
@@ -65,24 +111,17 @@ const Cart = () => {
                       -
                     </button>
                   </div>
-
                   <div className="cart-item-price">${cartItem.price}</div>
                   <div className="item-amount">{cartItem.cartQuantity}</div>
                 </div>
               ))}
-          </div>
-          <CartSummary />
-
-          <h3>Ready to Checkout?</h3>
-
-          {isLoggedIn ? (
-            <button onClick={() => navigate("/checkout")}> Checkout Here! </button>
-          ) : (
+            </div>
+            <CartSummary />
+            <h3>Ready to Checkout?</h3>
             <button onClick={() => navigate("/login")}> Login to start Checkout </button>
-          )}
-        </div>
-      )}
-    </div>
+        </>)}
+        </>)}
+    </>
   );
 };
 
