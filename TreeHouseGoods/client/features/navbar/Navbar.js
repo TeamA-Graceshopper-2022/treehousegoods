@@ -24,14 +24,19 @@ const Navbar = () => {
               <Link to="/home">Home</Link>
             </div>
             <div className='navbarRightLinks'>
-              <Link to="/cart">Cart</Link>
-              {isAdmin ? (<>
-              <Link to='/admin/'>Admin</Link>
-              <Link to='/admin/products'>All Products</Link></>) : (
+              {isAdmin ? (
                 <>
-               <Link to="/products">All Products</Link> 
-              <Link to='/user/'>Profile</Link>
-              </>)}
+                  <Link to='/admin/products'>All Products</Link>
+                  <Link to="/cart">Cart</Link>
+                  <Link to='/admin/'>Admin</Link>
+                </>
+              ) : (
+                <>
+                  <Link to="/products">Shop</Link>
+                  <Link to="/cart">Cart</Link>
+                  <Link to='/user/'>Profile</Link>
+                </>
+              )}
               <button type="button" className="signButton" onClick={logoutAndRedirectHome}>
                 Logout
               </button>
@@ -42,9 +47,9 @@ const Navbar = () => {
             {/* The navbar will show these links before you log in */}
             <div>
               <Link to="/home">Home</Link>
-              <Link to="/products">All Products</Link>
             </div>
             <div>
+              <Link to="/products">Shop</Link>
               <Link to="/cart">Cart</Link>
               <Link to="/login">Login</Link>
               <Link to="/signup">Sign Up</Link>
