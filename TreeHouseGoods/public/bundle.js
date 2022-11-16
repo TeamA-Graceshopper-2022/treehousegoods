@@ -7044,8 +7044,11 @@ var Navbar = function Navbar() {
     to: "/products"
   }, "Shop"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
 <<<<<<< HEAD
+<<<<<<< HEAD
     to: "/cart"
   }, "Cart"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+=======
+>>>>>>> f45d483ab55cd9361aec56f04ca22c701b8dce59
 =======
 >>>>>>> f45d483ab55cd9361aec56f04ca22c701b8dce59
     to: "/user/"
@@ -7060,7 +7063,11 @@ var Navbar = function Navbar() {
   }, "Home")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
     to: "/products"
 <<<<<<< HEAD
+<<<<<<< HEAD
   }, "Shop"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+=======
+  }, "Shop")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+>>>>>>> f45d483ab55cd9361aec56f04ca22c701b8dce59
 =======
   }, "Shop")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
 >>>>>>> f45d483ab55cd9361aec56f04ca22c701b8dce59
