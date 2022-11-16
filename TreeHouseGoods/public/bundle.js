@@ -5639,6 +5639,9 @@ var AppRoutes = function AppRoutes() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
     path: "/products/:id",
     element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_features__WEBPACK_IMPORTED_MODULE_2__.SingleProduct, null)
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+    path: "/admin/*",
+    element: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_features__WEBPACK_IMPORTED_MODULE_2__.NotFound, null)
   })));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AppRoutes);
@@ -6729,6 +6732,31 @@ var LandingPage = function LandingPage() {
 
 /***/ }),
 
+/***/ "./client/features/home/NotFound.js":
+/*!******************************************!*\
+  !*** ./client/features/home/NotFound.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+
+
+var NotFound = function NotFound() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "404- Not Found!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/"
+  }, "Go back to homepage"));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NotFound);
+
+/***/ }),
+
 /***/ "./client/features/index.js":
 /*!**********************************!*\
   !*** ./client/features/index.js ***!
@@ -6746,6 +6774,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Checkout": () => (/* reexport safe */ _orders_Checkout__WEBPACK_IMPORTED_MODULE_5__["default"]),
 /* harmony export */   "CreateProduct": () => (/* reexport safe */ _admin_CreateProduct__WEBPACK_IMPORTED_MODULE_11__["default"]),
 /* harmony export */   "LandingPage": () => (/* reexport safe */ _home_LandingPage__WEBPACK_IMPORTED_MODULE_2__["default"]),
+/* harmony export */   "NotFound": () => (/* reexport safe */ _home_NotFound__WEBPACK_IMPORTED_MODULE_13__["default"]),
 /* harmony export */   "Orders": () => (/* reexport safe */ _orders_Orders__WEBPACK_IMPORTED_MODULE_6__["default"]),
 /* harmony export */   "ReviseProduct": () => (/* reexport safe */ _admin_ReviseProduct__WEBPACK_IMPORTED_MODULE_12__["default"]),
 /* harmony export */   "SignUp": () => (/* reexport safe */ _user_SignUp__WEBPACK_IMPORTED_MODULE_8__["default"]),
@@ -6765,6 +6794,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _products_AdminProducts__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./products/AdminProducts */ "./client/features/products/AdminProducts.js");
 /* harmony import */ var _admin_CreateProduct__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./admin/CreateProduct */ "./client/features/admin/CreateProduct.js");
 /* harmony import */ var _admin_ReviseProduct__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./admin/ReviseProduct */ "./client/features/admin/ReviseProduct.js");
+/* harmony import */ var _home_NotFound__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./home/NotFound */ "./client/features/home/NotFound.js");
+
 
 
 

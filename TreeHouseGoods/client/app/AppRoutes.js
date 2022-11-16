@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { AllProducts, LandingPage, SingleProduct, Cart, UserDashboard, SignUp, AdminDashboard, AdminProducts, CreateProduct, ReviseProduct } from '../features';
+import { BrowserRouter, Route, Routes} from 'react-router-dom';
+import { AllProducts, LandingPage, SingleProduct, Cart, UserDashboard, SignUp, AdminDashboard, AdminProducts, CreateProduct, ReviseProduct, NotFound } from '../features';
 import AuthForm from '../features/auth/AuthForm';
 import Home from '../features/home/Home';
 import { me } from './store';
@@ -25,7 +25,6 @@ const AppRoutes = () => {
     <div>
 
       {/**Nav Bar component? */}
-      
       {isLoggedIn ? (
         <Routes>
           <Route path="/" element={<Home />} />
@@ -42,29 +41,19 @@ const AppRoutes = () => {
         </Routes>
       ) : (
         <Routes>
-          {/* <Route
-            path="/"
-            element={<AuthForm name="login" displayName="Login" />}
-          /> */}
-          <Route
-            path="/login"
-            element={<AuthForm name="login" displayName="Login" />}
-          />
-          {/* <Route
-            path="/signup"
-            element={<AuthForm name="signup" displayName="Sign Up" />}
-          /> */}
+          <Route path="/login" element={<AuthForm name="login" displayName="Login" />}/>
           <Route path="/signup" element={<SignUp/>}/>
         </Routes>
       )}
       <Routes>
       <Route path="/products" element={<AllProducts/>}/>
-      
       <Route path='/home' element={<LandingPage/>}/>
       <Route path='/' element={<LandingPage/>}/>
       <Route path='/cart' element={<Cart/>}/>
       <Route path="/products/cat/:category" element={<AllProducts/>}/>
       <Route path="/products/:id" element={<SingleProduct/>}/>
+      <Route path="/admin/*" element={<NotFound/>}/>
+      {/* <Route path="/*" element={<NotFound/>}/>   */}
       </Routes>
     </div>
   );
