@@ -71,7 +71,19 @@ footer {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
+}
+
+input[type=text] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type=password] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
 }
 
 /* Landing Page */
@@ -102,6 +114,8 @@ footer {
 
 .productNameViewAll {
   height: 5vh;
+  font-size: 18px;
+  margin: 0px 0px 5px 0px;
 }
 
 .landingImageBlock {
@@ -119,8 +133,15 @@ footer {
 
 /* All Product View */
 
+.searchBarBlock {
+  margin: 0vw 1vw;
+}
+
+.allProductsTitle {
+  margin: 0vw 1vw;
+}
+
 .allView{
-  /* width: 20vw; */
   width:100%;
   height:60vh;
   object-fit:cover;
@@ -144,7 +165,7 @@ footer {
   margin: 10px;
 
   width: 20vw;
-  height: 75vh;
+  height: 70vh;
 }
 
 .allProducts a {
@@ -165,6 +186,12 @@ footer {
   width: 75vw;
 }
 
+
+/* Sign Up */
+
+.signupform {
+  margin: 0vw 1vw;
+}
 
 
 /* Cart */
