@@ -1,19 +1,20 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { editProduct } from "../../app/AllProductsSlice/allProductsSlice";
 
 const ReviseProduct = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
+    const product = useSelector((state) => state.singleProduct.product)
 
-    const [name, setName] = useState('');
-    const [price, setPrice] = useState('');
-    const [category, setCatergory] = useState('');
-    const [desc, setDesc] = useState('');
-    const [image, setImage] = useState('');
-    const [imageAlt, setAlt] = useState('');
-    const [inventory, setInventory] = useState('');
+    const [name, setName] = useState(product.name);
+    const [price, setPrice] = useState(product.price);
+    const [category, setCatergory] = useState(product.category);
+    const [desc, setDesc] = useState(product.desc);
+    const [image, setImage] = useState(product.image);
+    const [imageAlt, setAlt] = useState(product.imageAlt);
+    const [inventory, setInventory] = useState(product.inventory);
 
     const changeProduct = () => {
         dispatch(editProduct({ id, name, price, category, desc, image, imageAlt, inventory }));
