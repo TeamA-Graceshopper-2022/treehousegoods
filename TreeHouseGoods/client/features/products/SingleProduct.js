@@ -7,7 +7,7 @@ import axios from "axios";
 
 const SingleProduct = () => {
     const { id } = useParams();
-    const product = useSelector((state) => state.singleProduct.product)
+    const guestProduct = useSelector((state) => state.singleProduct.product)
     const user = useSelector((state) => state.auth.me)
 
 
@@ -40,8 +40,8 @@ const SingleProduct = () => {
     //break through bugs
     //styling takes time
 
-    const handleAddToGuestCart = (product) => {
-        dispatch(addToGuestCart(product))
+    const handleAddToGuestCart = (guestProduct) => {
+        dispatch(addToGuestCart(guestProduct))
        // navigate("/cart");
     }
 
@@ -51,12 +51,12 @@ const SingleProduct = () => {
     console.log("Product", product)
     return (
         <div className="singleProductContainer">
-            <div><h1>{product.name}</h1></div>
-            <div><img className="singleProductImage" src={product.image} /></div>
-            <div><p>{product.desc}</p></div>
-            <div><h3>{product.price}</h3></div>
+            <div><h1>{guestProduct.name}</h1></div>
+            <div><img className="singleProductImage" src={guestProduct.image} /></div>
+            <div><p>{guestProduct.desc}</p></div>
+            <div><h3>{guestProduct.price}</h3></div>
             <button onClick={(e)=> addToCartFunction(e, product.id)}> Add to Cart</button>
-            <button onClick={() => handleAddToGuestCart(product)}>Add to Guest Cart</button>
+            <button onClick={() => handleAddToGuestCart(guestProduct)}>Add to Guest Cart</button>
         </div>
 
     )
