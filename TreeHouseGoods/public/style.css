@@ -47,6 +47,14 @@ nav a:hover {
   margin: 0vh 1vw;
 }
 
+/*Footer */
+
+footer {
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
 /* Welcome User Block */
 
 .welcomeUser {
