@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 const LandingPage = () => {
     return (
         <div>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp2SkrIWwy4T_MGw1woy0XVf0KVFlFvr3q0g&usqp=CAU"/>
+            <div className="landingImageBlock">
+                <img id="landingPageImage" src="https://cdn.shopify.com/s/files/1/0553/0461/8173/products/junzo-red-clay-tokoname-japanese-teapot-set-88oz260ml-sasame-and-ceramesh-musubi-kiln-handmade-japanese-tableware-and-japanese-dinnerware-836048_1000x.jpg?v=1654483376" />
+            </div>
             <div className="categoryButtons">
                 <Link to="/products/cat/plant"><div className="categoryBut"><div>Plants</div></div></Link>
                 <Link to="/products/cat/tea"><div className="categoryBut"><div>Tea</div></div></Link>
