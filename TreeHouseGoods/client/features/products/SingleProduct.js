@@ -11,8 +11,6 @@ const SingleProduct = () => {
     const user = useSelector((state) => state.auth.me)
 
 
-
-
     const order = useSelector((state) => state.cart)
 
     const dispatch = useDispatch()
