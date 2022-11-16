@@ -22,6 +22,7 @@ const Navbar = () => {
             {/* The navbar will show these links after you log in */}
             <div>
               <Link to="/home">Home</Link>
+              <Link to="/products">Shop</Link>
             </div>
             <div className='navbarRightLinks'>
               {isAdmin ? (
@@ -32,7 +33,8 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-               <Link to="/products">Shop</Link> 
+              
+              <Link to="/cart">Cart</Link>
               <Link to='/user/'>Profile</Link>
               </>)}
               <button type="button" className="signButton" onClick={logoutAndRedirectHome}>
@@ -48,7 +50,6 @@ const Navbar = () => {
               <Link to="/products">Shop</Link>
             </div>
             <div>
-              <Link to="/products">Shop</Link>
               <Link to="/cart">Cart</Link>
               <Link to="/login">Login</Link>
               <Link to="/signup">Sign Up</Link>
