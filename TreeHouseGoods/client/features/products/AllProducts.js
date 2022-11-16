@@ -47,9 +47,9 @@ const AllProducts = () => {
 
                 {search(products).map((product) => (
                     <div className="allProducts" key={product.id}>
-                        <div><Link to={`/products/${product.id}`}><h3>{product.name}</h3></Link></div>
+                        <div><Link to={`/products/${product.id}`}><h3 className="productNameViewAll">{product.name}</h3></Link></div>
                         <div><Link to={`/products/${product.id}`}><img className="allView" src={product.image} /></Link></div>
-                        <div className="itemPrice">{product.price}</div>
+                        <div className="itemPrice">${product.price}</div>
                     </div>
                 ))}
             </div>

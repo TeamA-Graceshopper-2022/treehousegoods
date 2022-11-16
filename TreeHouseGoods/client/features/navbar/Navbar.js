@@ -15,16 +15,15 @@ const Navbar = () => {
 
   return (
     <div>
-      <h1>TreeHouse Goods</h1>
+      <h1 className='pageLogo'>TreeHouse Goods</h1>
       <nav>
         {isLoggedIn ? (
           <div className='navContainer'>
             {/* The navbar will show these links after you log in */}
             <div>
               <Link to="/home">Home</Link>
-              
             </div>
-            <div>
+            <div className='navbarRightLinks'>
               <Link to="/cart">Cart</Link>
               {isAdmin ? (<>
               <Link to='/admin/'>Admin</Link>
@@ -33,7 +32,7 @@ const Navbar = () => {
                <Link to="/products">All Products</Link> 
               <Link to='/user/'>Profile</Link>
               </>)}
-              <button type="button" onClick={logoutAndRedirectHome}>
+              <button type="button" className="signButton" onClick={logoutAndRedirectHome}>
                 Logout
               </button>
             </div>
