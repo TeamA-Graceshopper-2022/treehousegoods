@@ -29,7 +29,7 @@ const Navbar = () => {
               <Link to='/admin/'>Admin</Link>
               <Link to='/admin/products'>All Products</Link></>) : (
                 <>
-               <Link to="/products">All Products</Link> 
+               <Link to="/products">Shop</Link> 
               <Link to='/user/'>Profile</Link>
               </>)}
               <button type="button" className="signButton" onClick={logoutAndRedirectHome}>
@@ -42,7 +42,7 @@ const Navbar = () => {
             {/* The navbar will show these links before you log in */}
             <div>
               <Link to="/home">Home</Link>
-              <Link to="/products">All Products</Link>
+              <Link to="/products">Shop</Link>
             </div>
             <div>
               <Link to="/cart">Cart</Link>
