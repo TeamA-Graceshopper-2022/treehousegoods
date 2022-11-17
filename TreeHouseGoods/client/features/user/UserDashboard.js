@@ -18,7 +18,7 @@ const UserDashboard = () => {
         <div>
             <div>
                 <h3>User Information</h3>
-                <Link to={`/updateform`}><button>Update information</button></Link>
+                <Link to={`/updateform`}><button className="signButton" >Update information</button></Link>
                 <ul>
                 <li>Name: {user.firstname} {user.lastname}</li>
                 <li>Username: {user.username}</li>

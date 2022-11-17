@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { logout } from '../../app/store';
@@ -6,8 +6,12 @@ import { logout } from '../../app/store';
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
+  const order = useSelector((state) => state.cart.order)
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  console.log(order)
+
   const logoutAndRedirectHome = () => {
     dispatch(logout());
     navigate('/login');
@@ -34,7 +38,7 @@ const Navbar = () => {
               ) : (
                 <>
               
-              <Link to="/cart">Cart</Link>
+              <Link to={`/cart/`}>Cart</Link>
               <Link to='/user/'>Profile</Link>
               </>)}
               <button type="button" className="signButton" onClick={logoutAndRedirectHome}>

@@ -9,11 +9,8 @@ const SingleProduct = () => {
     const { id } = useParams();
     const product = useSelector((state) => state.singleProduct.product)
     const user = useSelector((state) => state.auth.me)
-
-
-
-
     const order = useSelector((state) => state.cart)
+    const isLoggedIn = useSelector((state) => !!state.auth.me.id);
 
     const dispatch = useDispatch()
     useEffect(() => {
@@ -55,8 +52,11 @@ const SingleProduct = () => {
             <div><img className="singleProductImage" src={product.image} /></div>
             <div><p>{product.desc}</p></div>
             <div><h3>{product.price}</h3></div>
-            <button onClick={(e)=> addToCartFunction(e, product.id)}> Add to Cart</button>
-            <button onClick={() => handleAddToGuestCart(product)}>Add to Guest Cart</button>
+            {isLoggedIn ? (
+               <button className="signButton" onClick={(e)=> addToCartFunction(e, product.id)}>Add to Cart</button> 
+            ) : (
+                <button className="signButton" onClick={() => handleAddToGuestCart(product)}>Add to Cart</button>
+            )}
         </div>
 
     )
