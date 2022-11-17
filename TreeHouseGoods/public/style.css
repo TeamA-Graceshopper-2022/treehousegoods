@@ -264,8 +264,14 @@ input[type=password] {
 
 /* Single Product View */
 
+.singleProductContainer {
+  padding: 3rem 5rem;
+}
+
 .singleProductImage {
-  width: 75vw;
+  width: 250px;
+  max-width: 100%;
+  margin-right: 2rem;
 }
 
 
