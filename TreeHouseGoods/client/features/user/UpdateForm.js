@@ -28,38 +28,38 @@ const UpdateForm = () => {
     }
 
     return(
-        <div className="updateUserForm">
+        <div className="updateForm">
             <form onSubmit={update}>
-            <label >First Name:</label>
-                <input name="first" value={firstname} onChange={(evt) => setFirstName(evt.target.value)} />
+            <label><small>First Name:</small></label>
+                <input name="first" value={firstname} type="text" onChange={(evt) => setFirstName(evt.target.value)} />
 
-                <label  >Last Name:</label>
-                <input name="last" value={lastname} onChange={(evt) => setLastName(evt.target.value)} />
+                <label><small>Last Name:</small></label>
+                <input name="last" value={lastname} type="text" onChange={(evt) => setLastName(evt.target.value)} />
 
-                <label >Username:</label>
-                <input name="username" value={username} onChange={(evt) => setUserName(evt.target.value)} />
+                <label><small>Username:</small></label>
+                <input name="username" value={username} type="text" onChange={(evt) => setUserName(evt.target.value)} />
 
-                <label>Email:</label>
-                <input name="email" value={email} onChange={(evt) => setEmail(evt.target.value)} />
+                <label><small>Email:</small></label>
+                <input name="email" value={email} type="text" onChange={(evt) => setEmail(evt.target.value)} />
 
-                <label>Password:</label>
+                <label><small>Password:</small></label>
                 <input type="password"name="password" value={password} onChange={(evt) => setPassword(evt.target.value)} />
 
-                <label>Address:</label>
-                <input name="address" value={addressSt} onChange={(evt) => setAddress(evt.target.value)} />
+                <label><small>Address:</small></label>
+                <input name="address" value={addressSt} type="text" onChange={(evt) => setAddress(evt.target.value)} />
 
-                <label >Apt:</label>
-                <input name="apt" value={addressApt} onChange={(evt) => setApt(evt.target.value)} />
+                <label><small>Apt:</small></label>
+                <input name="apt" value={addressApt} type="text" onChange={(evt) => setApt(evt.target.value)} />
 
-                <label>City:</label>
-                <input name="city" value={addressCity} onChange={(evt) => setCity(evt.target.value)} />
+                <label><small>City:</small></label>
+                <input name="city" value={addressCity} type="text" onChange={(evt) => setCity(evt.target.value)} />
 
-                <label>State:</label>
-                <input name="state" value={addressState} onChange={(evt) => setState(evt.target.value)} />
+                <label><small>State:</small></label>
+                <input name="state" value={addressState} type="text" onChange={(evt) => setState(evt.target.value)} />
 
-                <label>Zip Code:</label>
-                <input name="zip" value={addressZip} onChange={(evt) => setZip(evt.target.value)} />
-                <button type="submit">Submit</button>
+                <label><small>Zip Code:</small></label>
+                <input name="zip" value={addressZip} type="text" onChange={(evt) => setZip(evt.target.value)} />
+                <button type="submit" className="signButton">Submit</button>
             </form>
         </div>
     )

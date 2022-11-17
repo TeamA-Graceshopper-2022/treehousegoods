@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Orders } from "../";
 import { oneUser } from "../../app/Dashboard/UserDashboardSlice";
 
@@ -16,10 +16,10 @@ const UserDashboard = () => {
 
     return(
         <div>
-            <div>
-                <h3>User Information</h3>
-                <Link to={`/updateform`}><button>Update information</button></Link>
-                <ul>
+            <div className="userinfoDiv">
+                <h1>User Information</h1>
+                <a href={`/updateform`}><button className="signButton">Update information</button></a>
+                <ul className="userinfoList">
                 <li>Name: {user.firstname} {user.lastname}</li>
                 <li>Username: {user.username}</li>
                 <li>Email: {user.email}</li>

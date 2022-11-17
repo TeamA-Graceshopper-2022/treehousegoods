@@ -59,7 +59,7 @@ const SignUp = () => {
                 <label><small>state</small></label>
                 <input name="state" value={addressState} type='text' onChange={(evt) => setState(evt.target.value)} />
 
-                <label><small>zip Code</small></label>
+                <label><small>Zip Code</small></label>
                 <input name="zip" value={addressZip} type='text' onChange={(evt) => setZip(evt.target.value)} />
                 <div>
                 <button className="signButton">Submit</button></div>
