@@ -22,13 +22,20 @@ export const findOrCreateCart = createAsyncThunk("findOrCreateCart", async(id) =
     }
 })
 
-
+export const getOrderProducts = createAsyncThunk("getOrderProducts", async(id) => {
+    try{
+        const { data } = await axios.get(`http://localhost:8080/api/orders/${id}`)
+        return data;
+    } catch(err) {
+        next(err)
+    }
+})
 
 const initialState= {
     cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : [],  //checking if cart items are in local storage, if have we add, else we add it as an empty array
     cartTotalQuantity:0,
     cartTotalAmount: 0,
-
+    order: []
 };
 
 
@@ -90,6 +97,9 @@ const cartSlice = createSlice({
         }),
         builder.addCase(findOrCreateCart.fulfilled, (state, action) => {
             return action.payload[0]
+        }),
+        builder.addCase(getOrderProducts.fulfilled, (state, action) => {
+            state.order = action.payload
         })
     },
 });
