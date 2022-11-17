@@ -28,13 +28,12 @@ form div {
 
 header {
   display: flex;
-  position: fixed;
+  
   z-index:2;
   padding: 10px;
-  width: calc(100% - 8em);
-  margin: 0 4em;
+
+
   color: #fff;
-  border-radius: 0 0 2em 2em;
   background-color: rgb(81, 119, 95);
   opacity: .9;
 }
@@ -44,7 +43,7 @@ header {
 
 nav a {
   display: inline-block;
-  color: black;
+  color: #fff;
   margin: 0vw 1vw;
   text-transform: uppercase;
 }
@@ -77,6 +76,8 @@ footer {
   width: 100%;
   background-color: rgb(81, 119, 95);
   opacity: .8;
+  color: #fff;
+  
 }
 
 /* Carousel/ Slider */
@@ -105,6 +106,10 @@ footer {
   background-color: rgb(54, 88, 67);
   color: #fff;
   border-radius: 1rem 1rem 1em 1em;
+}
+
+#carousel .button-shop {
+  border-radius: 12px;
 }
 
 .carousel-image {
@@ -167,6 +172,7 @@ input[type=password] {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  border-radius: 1rem 1rem 1em 1em;
 }
 
 .categoryBut {
@@ -180,6 +186,7 @@ input[type=password] {
   padding: 5px;
   margin: 20px 10px;
   background-color: rgb(54, 88, 67);
+  border-radius: 1rem 1rem 1em 1em;
   
   /* previously blue: rgb(115, 192, 251) */
 
@@ -298,6 +305,7 @@ input[type=password] {
   grid-template-columns: 3fr 1fr 1fr 1fr;
   align-items: center;
   column-gap: 0.5rem;
+  justify-content: space-between;
   
 
 }
@@ -316,10 +324,6 @@ input[type=password] {
   font-size: 10px;
 }
 
-.cart-item-price {
-   justify-self: right;
-   font-weight: 400px;
-}
 
 .cart-item .cart-product h3 {
   font-weight: 300px;
@@ -338,9 +342,10 @@ input[type=password] {
 
 .cart-item .cart-product .cart-item-price {
   display: flex;
-  justify-content: center;
+  justify-self: right;
   width: 130px;
-  align-items: center;
+  align-items: flex-end;
+  right: 35vh;
 }
 
 
@@ -370,11 +375,37 @@ input[type=password] {
   justify-content: space-between;
 }
 
+/* Cart */
+
+.cart-container {
+  padding: 3rem 5rem;
+}
+
+.cart-container h1{
+   font-weight: 300;
+   font-size: 26px;
+   text-align: center;
+}
+
+.cart-container .cartHeaders {
+  font-size: 14px;
+  font-weight: 300px;
+  text-transform: lowercase;
+}
+
+.cart-item {
+  border-top: 1px solid rgb(187,187,187);
+  padding: 1rem 0;
+
+}
+
 .cart-item,.cart-container .cartHeaders {
   display:grid;
   grid-template-columns: 3fr 1fr 1fr 1fr;
   align-items: center;
   column-gap: 0.5rem;
+
+
 }
 
 .cart-item .cartproduct {
@@ -400,6 +431,7 @@ input[type=password] {
   font-weight: 300px;
 }
 
+
 .cart-item .cart-product .item-amount {
  display: flex;
  justify-content: center;
@@ -407,6 +439,7 @@ input[type=password] {
  align-items: center;
  border: 0.5px solid rgb(177, 177, 177);
  border-radius: 5px;
+
 }
 
 .cart-item .cart-product .cart-item-price {
@@ -415,3 +448,7 @@ input[type=password] {
   width: 130px;
   align-items: center;
 }
+
+@media (min-width: 600px) {
+  /* more CSS for that specific screen size*/
+ }

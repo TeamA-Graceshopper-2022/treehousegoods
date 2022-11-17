@@ -14,7 +14,7 @@ const LandingPage = () => {
  */}
       <section id="carousel">
       <div id="carousel-text">
-        <button>Shop TreeHouse</button>
+        <button>Black Friday Goodies!</button>
       </div>
       <img class="carousel-image" src="https://images.unsplash.com/photo-1487540765093-e5e1501d2c39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80" />
     </section>

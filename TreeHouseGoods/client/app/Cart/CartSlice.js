@@ -32,7 +32,7 @@ export const getOrderProducts = createAsyncThunk("getOrderProducts", async(id) =
 })
 
 const initialState= {
-    cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : [],  //checking if cart items are in local storage, if have we add, else we add it as an empty array
+    cartItems: localStorage.getItem("cartGuestItems") ? JSON.parse(localStorage.getItem("cartGuestItems")) : [],  //checking if cart items are in local storage, if have we add, else we add it as an empty array
     cartTotalQuantity:0,
     cartTotalAmount: 0,
     order: []
@@ -61,11 +61,11 @@ const cartSlice = createSlice({
             const tempProduct = {...action.payload, cartQuantity: 1 };
             state.cartItems.push(tempProduct) 
            }
-           localStorage.setItem("cartGuestItems", JSON.stringify(state.cartItems));
+           localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
         },
          clearGuestCart(state,action) {
             state.cartItems = [];
-            localStorage.setItem("cartGuestItems", JSON.stringify(state.cartItems));
+            localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
          },
 
         // return those items in array that without the item with the id that matches
