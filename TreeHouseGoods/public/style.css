@@ -2,6 +2,7 @@ body {
   font-family: Public Sans;
   margin: 0px;
   padding: 0px;
+  background-color: warm white;
 }
 
 a {
@@ -23,6 +24,22 @@ form div {
   display: inline-block;
 }
 
+/* Header */
+
+header {
+  display: flex;
+  position: fixed;
+  z-index:2;
+  padding: 10px;
+  width: calc(100% - 8em);
+  margin: 0 4em;
+  color: #fff;
+  border-radius: 0 0 2em 2em;
+  background-color: rgb(81, 119, 95);
+  opacity: .9;
+}
+
+
 /* Navigation Bar */
 
 nav a {
@@ -32,11 +49,11 @@ nav a {
   text-transform: uppercase;
 }
 
-nav a:hover {
+header nav a:hover {
   text-decoration: underline;
 }
 
-.navContainer {
+header .navContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -58,7 +75,8 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: lightgray;
+  background-color: rgb(81, 119, 95);
+  opacity: .8;
 }
 
 /* Carousel/ Slider */
@@ -71,10 +89,22 @@ footer {
 
 #carousel-text {
   position: absolute;
-  top: 35vh;
-  color: #fff;
-  text-shadow: 2px 2px #252525;
+  right: 25vh;
+  top: 70vh;
+  color: rgb(81, 119, 95);
+  align-content: flex-end;
+  
   z-index: 1;
+}
+
+#carousel button {
+  width: 20vw;
+  height: 25px;
+  padding: 5px;
+  margin: 20px 10px;
+  background-color: rgb(54, 88, 67);
+  color: #fff;
+  border-radius: 1rem 1rem 1em 1em;
 }
 
 .carousel-image {
@@ -149,11 +179,12 @@ input[type=password] {
   height: 25px;
   padding: 5px;
   margin: 20px 10px;
-  background-color: #4CAF50;
+  background-color: rgb(54, 88, 67);
+  
   /* previously blue: rgb(115, 192, 251) */
 
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .productNameViewAll {
