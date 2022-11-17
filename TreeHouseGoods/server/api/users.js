@@ -70,3 +70,12 @@ router.post('/', async (req, res, next) => {
   }
 })
 
+// Route to edit user information in user dashboard
+router.put('/:id', async (req,res,next) => {
+  try{
+    const editUser = await User.findByPk(req.params.id)
+    res.send(await editUser.update(req.body))
+  } catch(err){
+    next(err)
+  }
+})

@@ -34,7 +34,7 @@ const AllProducts = () => {
 
     return (
         <div>
-            <div>
+            <div className="searchBarBlock">
                 <label><input type="search" name="search-form"
                     id="search-form"
                     value={query}
@@ -42,13 +42,13 @@ const AllProducts = () => {
                     onChange={(e) => setQuery(e.target.value)}
                 /></label>
             </div>
-            <h1>All Products</h1>
+            <div className="allProductsTitle"><h1>All Products</h1></div>
             <div className="allProductsContainer">
 
                 {search(products).map((product) => (
                     <div className="allProducts" key={product.id}>
-                        <div><Link to={`/products/${product.id}`}><h3 className="productNameViewAll">{product.name}</h3></Link></div>
                         <div><Link to={`/products/${product.id}`}><img className="allView" src={product.image} /></Link></div>
+                        <div className="productNameViewAll"><Link to={`/products/${product.id}`}>{product.name}</Link></div>
                         <div className="itemPrice">${product.price}</div>
                     </div>
                 ))}
