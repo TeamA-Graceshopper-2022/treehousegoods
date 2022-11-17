@@ -57,7 +57,7 @@ const Cart = () => {
             ) : (
                 <>
                     {/* // where the logged in user's cart is: */}
-                    <>
+                    <div className="allCart">
                     <div className="cartHeaders">
                         <h3 className="product-header">Product</h3>
                         <h3 className="price-header">Price</h3>
@@ -84,7 +84,7 @@ const Cart = () => {
               ))}
             </div>
             <h3>Ready to Checkout?</h3>
-            <button className="signButton" onClick={() => navigate("/checkout")}> Checkout Here! </button></>
+            <button className="signButton" onClick={() => navigate("/checkout")}> Checkout Here! </button></div>
             </>
             ) }
         </>
@@ -97,7 +97,7 @@ const Cart = () => {
                       <Link to="/">Start Shopping </Link>
                     </div>
                   </div>
-        ) : (<>
+        ) : (<div className="allCart">
             {/* This is the not empty guest cart: */}
             <div className="cartHeaders">
                 <h3 className="product-header">Product</h3>
@@ -131,7 +131,7 @@ const Cart = () => {
             </div>
             <h3>Ready to Checkout?</h3>
             <button className="signButton" onClick={() => navigate("/login")}> Login to start Checkout </button>
-        </>)}
+        </div>)}
         </>)}
     </div>
   );
