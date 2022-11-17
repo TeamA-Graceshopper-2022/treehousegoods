@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { CartSummary } from "../index";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,6 +7,7 @@ import {
   removeFromGuestCart,
   increaseItemGuestCart,
   decreaseItemGuestCart,
+  getOrderProducts
 } from "../../app/Cart/CartSlice";
 import axios from "axios";
 import { me } from "../../app/store"
@@ -15,9 +16,17 @@ import { me } from "../../app/store"
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
+  const order = useSelector((state) => state.cart.order)
+  console.log("this is cart", cart)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+  console.log("order", order)
+
+  useEffect(() => {
+    dispatch(getOrderProducts(3))
+  }, [])
+  console.log("order", order)
 
   const handleIncreaseQuantity = async (cartItem) =>
     dispatch(increaseItemGuestCart(cartItem));
@@ -28,6 +37,8 @@ const Cart = () => {
   const handleRemoveFromGuestCart = async (product) => {
     dispatch(removeFromGuestCart(product));
   };
+
+  console.log("islogged", isLoggedIn)
 
   return (
     <>
@@ -55,24 +66,23 @@ const Cart = () => {
                     </div>
                     <div className="cart-items">
                         {order &&
-                            order.map((cartItem) => (
+                            order.products.map((cartItem) => (
                             <div className="cart-item" key={cartItem.id}>
                                 <div className="cart-product">
                                     <h3>{cartItem.name}</h3>
                                     <img src={cartItem.image} />
                                     <p>{cart.desc}</p>
-                                    <button onClick={() => handleRemoveFromGuestCart(cartItem)}>Remove</button>
-                                    <button onClick={() => handleIncreaseQuantity(cartItem)}>+</button>
-                                    <button onClick={() => handleDecreaseQuantity(cartItem)}>-</button>
+                                    <button className="signButton"  onClick={() => handleRemoveFromGuestCart(cartItem)}>Remove</button>
+                                    <button className="signButton"  onClick={() => handleIncreaseQuantity(cartItem)}>+</button>
+                                    <button className="signButton"  onClick={() => handleDecreaseQuantity(cartItem)}>-</button>
                     </div>
                     <div className="cart-item-price">${cartItem.price}</div>
                     <div className="item-amount">{cartItem.cartQuantity}</div>
                 </div>
               ))}
             </div>
-            <CartSummary />
             <h3>Ready to Checkout?</h3>
-            <button onClick={() => navigate("/checkout")}> Checkout Here! </button></>
+            <button className="signButton" onClick={() => navigate("/checkout")}> Checkout Here! </button></>
             </>
             ) }
         </>
@@ -98,16 +108,16 @@ const Cart = () => {
               cart.cartItems.map((cartItem) => (
                 <div className="cart-item" key={cartItem.id}>
                   <div className="cart-product">
-                    <h3>{cartItem.name}</h3>
+                    <h3>{cartItem.name}</h3> 
                     <img src={cartItem.image} />
                     <p>{cart.desc}</p>
-                    <button onClick={() => handleRemoveFromGuestCart(cartItem)}>
+                    <button className="signButton" onClick={() => handleRemoveFromGuestCart(cartItem)}>
                       Remove
                     </button>
-                    <button onClick={() => handleIncreaseQuantity(cartItem)}>
+                    <button className="signButton" onClick={() => handleIncreaseQuantity(cartItem)}>
                       +
                     </button>
-                    <button onClick={() => handleDecreaseQuantity(cartItem)}>
+                    <button className="signButton" onClick={() => handleDecreaseQuantity(cartItem)}>
                       -
                     </button>
                   </div>
@@ -116,9 +126,8 @@ const Cart = () => {
                 </div>
               ))}
             </div>
-            <CartSummary />
             <h3>Ready to Checkout?</h3>
-            <button onClick={() => navigate("/login")}> Login to start Checkout </button>
+            <button className="signButton" onClick={() => navigate("/login")}> Login to start Checkout </button>
         </>)}
         </>)}
     </>
