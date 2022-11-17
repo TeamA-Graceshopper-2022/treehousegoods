@@ -6,15 +6,15 @@ import { editProduct } from "../../app/AllProductsSlice/allProductsSlice";
 const ReviseProduct = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
-    const product = useSelector((state) => state.singleProduct.product)
+    // const product = useSelector((state) => state.singleProduct.product)
 
-    const [name, setName] = useState(product.name);
-    const [price, setPrice] = useState(product.price);
-    const [category, setCatergory] = useState(product.category);
-    const [desc, setDesc] = useState(product.desc);
-    const [image, setImage] = useState(product.image);
-    const [imageAlt, setAlt] = useState(product.imageAlt);
-    const [inventory, setInventory] = useState(product.inventory);
+    const [name, setName] = useState('');
+    const [price, setPrice] = useState('');
+    const [category, setCatergory] = useState('');
+    const [desc, setDesc] = useState('');
+    const [image, setImage] = useState('');
+    const [imageAlt, setAlt] = useState('');
+    const [inventory, setInventory] = useState('');
 
     const changeProduct = () => {
         dispatch(editProduct({ id, name, price, category, desc, image, imageAlt, inventory }));
@@ -28,31 +28,24 @@ const ReviseProduct = () => {
     };
 
     return (
-        <div>
+        <div className="editproductForm">
         <form className="editform" onSubmit={changeProduct}>
-            <label>Product Name:</label>
-            <input input name="name" value={name} onChange={(evt) => setName(evt.target.value)} />
+            <input input name="name" placeholder="Product Name"value={name} type="text" onChange={(evt) => setName(evt.target.value)} />
 
-            <label>Price:</label>
-            <input input name="price" value={price} onChange={(evt) => setPrice(evt.target.value)} />
+            <input input name="price" placeholder="Price" value={price} type="text" onChange={(evt) => setPrice(evt.target.value)} />
 
-            <label>Category:</label>
-            <input input name="catergory" value={category} onChange={(evt) => setCatergory(evt.target.value)} />
+            <input input name="catergory" placeholder="Category" value={category} type="text" onChange={(evt) => setCatergory(evt.target.value)} />
 
-            <label>Description:</label>
-            <input input name="desc" value={desc} onChange={(evt) => setDesc(evt.target.value)} />
+            <input input name="desc" value={desc} placeholder="Description" type="text" onChange={(evt) => setDesc(evt.target.value)} />
 
-            <label>Image:</label>
-            <input input name="image" value={image} onChange={(evt) => setImage(evt.target.value)} />
+            <input input name="image" value={image} placeholder="Image" type="text" onChange={(evt) => setImage(evt.target.value)} />
 
-            <label>Alternative Image:</label>
-            <input input name="alt" value={imageAlt} onChange={(evt) => setAlt(evt.target.value)} />
+            <input input name="alt" value={imageAlt} placeholder="Alternative Image" type="text" onChange={(evt) => setAlt(evt.target.value)} />
 
-            <label>Inventory:</label>
-            <input input name="inventory" value={inventory} onChange={(evt) => setInventory(evt.target.value)} />
+            <input input name="inventory" value={inventory} placeholder="Inventory" type="text" onChange={(evt) => setInventory(evt.target.value)} />
 
-            <button type="submit">Edit</button>
-            <button type="button" onClick={
+            <button type="submit" className="signButton">Edit</button>
+            <button type="button" className="signButton" onClick={
                 () => {
                     setName('');
                     setPrice('');
