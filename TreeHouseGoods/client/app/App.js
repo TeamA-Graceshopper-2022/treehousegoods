@@ -8,6 +8,8 @@ const App = () => {
   return (
     <div>
       <Navbar /> 
+
+      
       <AppRoutes />
       <Footer />
     </div>

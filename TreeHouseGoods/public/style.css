@@ -53,6 +53,50 @@ footer {
   display:flex;
   flex-direction: row;
   justify-content: flex-end;
+  margin-right: 1rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: lightgray;
+}
+
+/* Carousel/ Slider */
+#carousel {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+#carousel-text {
+  position: absolute;
+  top: 35vh;
+  color: #fff;
+  text-shadow: 2px 2px #252525;
+  z-index: 1;
+}
+
+.carousel-image {
+  position: absolute;
+  display: block;
+  margin: auto;
+  min-width: 100%;
+  height: 100%;
+}
+
+#carousel .carousel-image {
+  position: absolute;
+  display: block;
+  margin: auto;
+  min-width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: opacity 1.5s;
+}
+
+#carousel .carousel-image.hidden {
+  opacity: 0;
 }
 
 /* Welcome User Block */
@@ -339,47 +383,4 @@ input[type=password] {
   justify-content: center;
   width: 130px;
   align-items: center;
-}
-
-/* user dashboard */
-.userinfoDiv{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding: 3rem 5rem;
-  background: #b3eeb5;
-}
-.userinfoList{
-  list-style: none;
-  font-size: 15px;
-}
-
-/* admin forms */
-.createproductForm, .editproductForm{
-  display: flex;
-  padding: 1rem 2rem;
-  background: #b3eeb5;
-}
-
-.addform, .editform{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  flex-grow: 1;
-  justify-content: center;
-}
-
-#search-form{
-  display: flex;
-  padding: 12px 20px;
-  margin:20px 20px;
-  box-sizing:border-box;
-}
-
-.addform input[type=text], .editform input[type=text]{
-  margin:5px
-}
-
-.addform .signButton, .editform .signButton{
-  margin: 5px;
 }
