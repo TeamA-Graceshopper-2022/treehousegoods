@@ -53,6 +53,50 @@ footer {
   display:flex;
   flex-direction: row;
   justify-content: flex-end;
+  margin-right: 1rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: lightgray;
+}
+
+/* Carousel/ Slider */
+#carousel {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+#carousel-text {
+  position: absolute;
+  top: 35vh;
+  color: #fff;
+  text-shadow: 2px 2px #252525;
+  z-index: 1;
+}
+
+.carousel-image {
+  position: absolute;
+  display: block;
+  margin: auto;
+  min-width: 100%;
+  height: 100%;
+}
+
+#carousel .carousel-image {
+  position: absolute;
+  display: block;
+  margin: auto;
+  min-width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: opacity 1.5s;
+}
+
+#carousel .carousel-image.hidden {
+  opacity: 0;
 }
 
 /* Welcome User Block */
@@ -313,3 +357,17 @@ footer {
   width: 130px;
   align-items: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 600px) {
+  /* more CSS for that specific screen size*/
+ }
