@@ -205,11 +205,20 @@ input[type=password] {
    font-size: 26px;
    text-align: center;
 }
+.allCart {
+  margin: 0vh 1vw;
+}
 
 .cart-container .cartHeaders {
   font-size: 14px;
   font-weight: 300px;
   text-transform: lowercase;
+}
+
+.cartHeaders {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .cart-item {
