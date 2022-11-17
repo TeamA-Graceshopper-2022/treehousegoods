@@ -2,6 +2,7 @@ body {
   font-family: Public Sans;
   margin: 0px;
   padding: 0px;
+  background-color: warm white;
 }
 
 a {
@@ -35,7 +36,7 @@ header {
   color: #fff;
   border-radius: 0 0 2em 2em;
   background-color: rgb(81, 119, 95);
-  opacity: .8;
+  opacity: .9;
 }
 
 
@@ -75,6 +76,7 @@ footer {
   bottom: 0;
   width: 100%;
   background-color: rgb(81, 119, 95);
+  opacity: .8;
 }
 
 /* Carousel/ Slider */
@@ -88,11 +90,21 @@ footer {
 #carousel-text {
   position: absolute;
   right: 25vh;
-  top: 35vh;
+  top: 70vh;
   color: rgb(81, 119, 95);
   align-content: flex-end;
   
   z-index: 1;
+}
+
+#carousel button {
+  width: 20vw;
+  height: 25px;
+  padding: 5px;
+  margin: 20px 10px;
+  background-color: rgb(54, 88, 67);
+  color: #fff;
+  border-radius: 1rem 1rem 1em 1em;
 }
 
 .carousel-image {
