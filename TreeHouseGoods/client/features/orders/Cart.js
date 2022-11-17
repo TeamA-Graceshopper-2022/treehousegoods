@@ -41,7 +41,7 @@ const Cart = () => {
   console.log("islogged", isLoggedIn)
 
   return (
-    <>
+    <div className="cart-container">
         {isLoggedIn ? (
             <>
             {(order.length === 0) ? (
@@ -78,6 +78,8 @@ const Cart = () => {
                     </div>
                     <div className="cart-item-price">${cartItem.price}</div>
                     <div className="item-amount">{cartItem.cartQuantity}</div>
+                    <div className="item-subtotal">${cartItem.price*cartItem.cartQuantity}</div>
+                    <div className="cart-total"></div>
                 </div>
               ))}
             </div>
@@ -123,6 +125,7 @@ const Cart = () => {
                   </div>
                   <div className="cart-item-price">${cartItem.price}</div>
                   <div className="item-amount">{cartItem.cartQuantity}</div>
+                  <div className="item subtotal">${cartItem.cartQuantity * cartItem.price}</div>
                 </div>
               ))}
             </div>
@@ -130,7 +133,7 @@ const Cart = () => {
             <button className="signButton" onClick={() => navigate("/login")}> Login to start Checkout </button>
         </div>)}
         </>)}
-    </>
+    </div>
   );
 };
 
